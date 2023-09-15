@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:fontAwesome="clr-namespace:fontAwesome"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.AccountProfileMarketing">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <StackLayout Padding="15,10,15,10">
+        <control:AccountBackToProfile x:Name="backtoAccountProfile"/>
+        <Grid BackgroundColor="#0079bb" Padding="10" Margin="-20,0,-20,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="24" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Image HorizontalOptions="Start" Grid.Column="0">
+                <Image.Source>
+                    <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.MailBulk}" FontFamily="FontAwesomeSolid" Color="#fff"></FontImageSource>
+                </Image.Source>
+            </Image>
+            <Label Grid.Column="1" FontSize="18" VerticalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text=" Marketing" TextColor="#fff" FontSize="18" FontAttributes="Bold" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </Grid>
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="60"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Text="Marketing Email Opt-In" TextColor="#0079bb" Margin="0,0,0,0" FontSize="17" FontAttributes="Bold" />
+            <Switch Grid.Column="1" x:Name="marketingSwitch" IsToggled="{Binding Marketing}" Toggled="marketingSwitch_Toggled" />
+        </Grid>
+    </StackLayout>
+</ContentPage>

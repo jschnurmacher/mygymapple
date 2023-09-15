@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:fontAwesome="clr-namespace:fontAwesome"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.AccountSchedule">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <ScrollView>
+    <StackLayout Padding="15,10,15,10">
+        <control:AccountBackToHome x:Name="backtoAccountHome"/>
+        <Grid BackgroundColor="#0079bb" Padding="10" Margin="-20,0,-20,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="24" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Image HorizontalOptions="Start" Grid.Column="0">
+                <Image.Source>
+                    <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.CalendarPlus}" FontFamily="FontAwesomeSolid" Color="#fff"></FontImageSource>
+                </Image.Source>
+            </Image>
+            <Label Grid.Column="1" FontSize="18" VerticalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text=" Schedule Classes" TextColor="#fff" FontSize="18" FontAttributes="Bold" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </Grid>
+        <CollectionView
+            x:Name="listView" 
+            SelectionMode="None"            
+            VerticalScrollBarVisibility="Never"
+            Margin="0,0,0,0">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="3" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame CornerRadius="5" BorderColor="#e0e0e0" HasShadow="False">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Child_Tapped" CommandParameter="{Binding ChildId}" />
+                        </Frame.GestureRecognizers>
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="28" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="18" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Grid.Row="0" Text="{Binding First}" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" />
+                            <Label IsVisible="{Binding ScheduleClasses}" Grid.Column="0" Grid.Row="1" Text="Schedule Classes" TextColor="#555" FontSize="15" FontAttributes="Bold" LineHeight="1" Margin="0,-6,0,0" />
+                            <Label IsVisible="{Binding ScheduleUnlimited}" Grid.Column="0" Grid.Row="1" Text="{Binding UnlimitedAvailable}" TextColor="#555" FontSize="15" FontAttributes="Bold" LineHeight="1" Margin="0,-6,0,0" />
+                            <Label IsVisible="{Binding ScheduleMakeup}" Grid.Column="0" Grid.Row="1" Text="{Binding MakeupsAvailable}" TextColor="#555" FontSize="15" FontAttributes="Bold" LineHeight="1" Margin="0,-6,0,0" />
+                            <Label IsVisible="{Binding ScheduleDropIn}" Grid.Column="0" Grid.Row="1" Text="{Binding DropInAvailable}" TextColor="#555" FontSize="15" FontAttributes="Bold" LineHeight="1" Margin="0,-6,0,0" />
+                            <Label IsVisible="{Binding VIMANotSigned}" Grid.Column="0" Grid.Row="1" Text="{Binding VIMANotSignedMessage}" TextColor="{Binding VIMAColor}" FontSize="15" FontAttributes="Bold" LineHeight="1" Margin="0,-6,0,0" />
+                            <Image HorizontalOptions="Start" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
+                                <Image.Source>
+                                    <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.CaretRight}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                                </Image.Source>
+                            </Image>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Grid
+            Padding="0,0,0,5"
+            MinimumHeightRequest="32">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="PurchaseClassCard_Tapped" />
+            </Grid.GestureRecognizers>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="16"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center">
+                <Image.Source>
+                    <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.PlusCircle}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                </Image.Source>
+            </Image>
+            <Label x:Name="purchaseClassCard" IsVisible="False" Grid.Column="1" Text="Purchase Class Card" TextColor="#0079bb" FontSize="15" FontAttributes="Bold" VerticalOptions="Center" />
+        </Grid>
+    </StackLayout>
+    </ScrollView>
+</ContentPage>

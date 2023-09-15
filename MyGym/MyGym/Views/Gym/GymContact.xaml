@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.GymContact">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="15,10,15,0">
+                <Image x:Name="waitImage"
+                    Source="wait1.webp"
+                    Margin="-15,-10,-15,5" />
+                <control:AccountBackToHome x:Name="backtoAccountHome"/>
+                <Label x:Name="contactTitle"
+                    Text="Contact Us"
+                    VerticalOptions="Center"
+                    Margin="-20,0,-20,0"
+                    Padding="30,10,10,10"
+                    Background="#0079bb"
+                    FontAttributes="Bold"
+                    TextColor="#fff" />
+                <Label x:Name="gymName"
+                    VerticalOptions="Center"
+                    FontAttributes="Bold"
+                    FontSize="15"
+                    Margin="0,0,0,0"
+                    TextColor="#333" />
+                <Label x:Name="gymAddress"
+                    VerticalOptions="Center"
+                    FontAttributes="Bold"
+                    FontSize="15"
+                    TextColor="#333" />
+                <Label x:Name="gymCityStateZip"
+                    VerticalOptions="Center"
+                    FontAttributes="Bold"
+                    FontSize="15"
+                    TextColor="#333" />
+                <Button x:Name="gymEmail" 
+                    Clicked="gymEmail_Clicked"
+                    TextTransform="None"
+                    Margin="0"
+                    Padding="0"
+                    Style="{StaticResource linkStyleLeft}" />
+                <Button x:Name="gymSMSText" 
+                    Clicked="gymSMSText_Clicked"
+                    TextTransform="None"
+                    Margin="0"
+                    Padding="0"
+                    Style="{StaticResource linkStyleLeft}" />
+                <Editor x:Name="Comments" AutoSize="TextChanges" MaxLength="512" Placeholder="*Comments/Questions" HeightRequest="90" />
+                <Button
+                    Text="Submit Comments"                    
+                    Clicked="Comments_Clicked" 
+                    Padding="0"
+                    Margin="0,5,0,15"
+                    Style="{StaticResource buttonStyle}" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

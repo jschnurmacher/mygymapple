@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.EnrollSummary">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+   <ScrollView HorizontalOptions="FillAndExpand">
+        <StackLayout>
+            <Label x:Name="EnrollTitle"
+                Text="Enrollment Summary"
+                VerticalOptions="Center"
+                HorizontalTextAlignment="Start"
+                FontSize="17"
+                Margin="0, 10, 0, 0"
+                Padding="10"
+                Background="#0079bb"
+                FontAttributes="Bold"
+                TextColor="#fff" />
+                <StackLayout Margin="10,10,10,30" Padding="0,0,0,30">
+                    <Label x:Name="ClassName" FontSize="16" FontAttributes="Bold" Padding="0,0,0,0" Margin="0,0,0,0" />
+                    <Label x:Name="ClassDateTime" FontSize="15" FontAttributes="Bold" Padding="0,0,0,0" Margin="0,-6,0,0" />
+                    <Label x:Name="CostSummary" Text="" FontSize="Small" FontAttributes="Bold" TextColor="#555" Padding="0,0,0,0" Margin="0,10,0,10"></Label>
+                    <Label x:Name="TrialPeriod" FontSize="15" FontAttributes="Bold" Padding="0,0,0,0" Margin="0,0,0,0" />
+                    <Label x:Name="TrialPeriodConverts" FontSize="15" FontAttributes="Bold" Padding="0,0,0,0" Margin="0,0,0,0" TextColor="DarkGreen" />
+                    <telerikPrimitives:RadExpander Margin="0,10,0,10">
+                        <telerikPrimitives:RadExpander.Header>
+                            <telerikPrimitives:ExpanderHeader HeightRequest="30" VerticalOptions="Center">
+                                <Label Text="Terms of Payment" FontSize="Small" FontAttributes="Bold" TextColor="#555" VerticalOptions="CenterAndExpand"></Label>
+                            </telerikPrimitives:ExpanderHeader>
+                        </telerikPrimitives:RadExpander.Header>
+                        <telerikPrimitives:RadExpander.Content>
+                            <StackLayout Margin="10">
+                                <Label x:Name="Terms" Text="dfgfffg fg fgf gf gf fg fgf f fgfgffgfgfgfgf gf f g" TextColor="#555"></Label>
+                            </StackLayout>
+                        </telerikPrimitives:RadExpander.Content>
+                    </telerikPrimitives:RadExpander>
+                    <Grid x:Name="SocksGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="20" />
+                        </Grid.RowDefinitions>
+                        <Label x:Name="SocksText" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontSize="12" FontAttributes="Bold" Margin="0,0,0,0" />
+                        <CheckBox x:Name="ChildSocksCheckbox" Grid.Column="0" Grid.Row="1" CheckedChanged="ChildSocksCheckbox_CheckedChanged" ></CheckBox>
+                        <Label x:Name="ChildSocksText" Text="My Gym Socks" Grid.Column="1" Grid.Row="1" FontSize="14" FontAttributes="Bold" Margin="0,0,0,0" />
+                    </Grid>
+                    <Grid x:Name="UnlimitedGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="60" />
+                        </Grid.RowDefinitions>
+                        <CheckBox x:Name="UnlimitedCheckbox" Grid.Column="0" Grid.Row="0" CheckedChanged="UnlimitedCheckbox_CheckedChanged" ></CheckBox>
+                        <Label x:Name="UnlimitedText" Grid.Column="1" Grid.Row="0" FontSize="14" FontAttributes="Bold" Margin="0,0,0,0" />
+                        <Label x:Name="UnlimitedText1" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" FontSize="12" Margin="0,0,0,0" />
+                        <Label x:Name="UnlimitedText2" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" FontSize="12" Margin="0,0,0,0" />
+                    </Grid>
+                    <Label x:Name="TotalStr" FontSize="15"></Label>
+                    <Label x:Name="CreditAvailable" FontSize="15" FontAttributes="Bold" Margin="0,0,0,0" />
+                    <Label x:Name="CreditApplied" FontSize="15" FontAttributes="Bold" Margin="0,0,0,0" />
+                    <Grid
+                        x:Name="CreditContainer"
+                        HorizontalOptions="FillAndExpand"
+                        Margin="0,0,0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="42" />
+                            <RowDefinition Height="42" />
+                        </Grid.RowDefinitions>
+                        <telerikInput:RadEntry x:Name="CreditApply"
+                            Grid.Column="0"
+                            Grid.Row="0" 
+                            WatermarkText="Credit to Apply" 
+                            MaxLength="6" />
+                        <Button x:Name="creditButton"
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            Text="Apply" 
+                            Clicked="Credit_Clicked" 
+                            Margin="0,0,0,0"
+                            Padding="0,0,0,0"
+                            WidthRequest="100"
+                            FontSize="13"
+                            CornerRadius="5"
+                            Style="{StaticResource buttonStyle}"/>
+                        <ActivityIndicator x:Name="activityIndicatorCredit" 
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            WidthRequest="100"
+                            Color="#0079bb"
+                            HorizontalOptions="Center"
+                            IsVisible="False" />
+                    </Grid>
+                    <Grid x:Name="TrialGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="160" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20" />
+                        </Grid.RowDefinitions>
+                        <Label x:Name="TrialCostLater" IsVisible="false" Text="*Payment will be collected later" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" FontSize="15" FontAttributes="Bold" Padding="0,0,0,20" />
+                    </Grid>
+                    <Label Text="*Notes : Include special needs and allergies or other relevant information. Leave blank if not applicable." FontSize="14" Padding="0,0,0,0" Margin="0,-10,0,0" />
+                    <Editor x:Name="Notes" AutoSize="TextChanges" MaxLength="256" Placeholder="Notes" HeightRequest="72" />
+                    <Button x:Name="EnrollButton"
+                        Text="Enroll" 
+                        Clicked="Continue_Clicked" 
+                        Padding="0"
+                        Margin="0,5,0,5"
+                        Style="{StaticResource buttonStyle}" />
+                </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

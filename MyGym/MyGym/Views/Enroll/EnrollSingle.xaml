@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.EnrollSingle">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="EnrollTitle"
+                Text=""
+                VerticalOptions="Center"
+                HorizontalTextAlignment="Start"
+                FontSize="17"
+                Margin="0, 10, 0, 0"
+                Padding="10"
+                Background="#0079bb"
+                FontAttributes="Bold"
+                TextColor="#fff" />
+            <ScrollView HorizontalOptions="FillAndExpand">
+                <StackLayout Margin="10,10,10,30" Padding="0,0,0,30">
+                    <Label x:Name="ClassName" FontSize="16" FontAttributes="Bold" Padding="0,0,0,0" Margin="0,0,0,0" />
+                    <Label x:Name="ClassDateTime" FontSize="15" FontAttributes="Bold" Padding="0,0,0,0" Margin="0,-6,0,0" />
+                    <Label Text="*Notes : Include special needs and allergies or other relevant information. Leave blank if not applicable." FontSize="14" Padding="0,0,0,0" Margin="0,10,0,0" />
+                    <Editor x:Name="Notes" AutoSize="TextChanges" MaxLength="256" Placeholder="Notes" />
+                    <Button x:Name="ActionButton"
+                        Text="Enroll" 
+                        Clicked="Continue_Clicked" 
+                        Padding="0"
+                        Margin="0,5,0,5"
+                        Style="{StaticResource buttonStyle}" />
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

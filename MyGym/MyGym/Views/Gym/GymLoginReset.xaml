@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+    mc:Ignorable="d"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.GymLoginReset">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <StackLayout Padding="15,10,15,10">
+        <ActivityIndicator x:Name="activityIndicator" 
+            Color="#0079bb"
+            IsRunning="True"
+            IsVisible="False" />
+        <Image
+            Source="logo.png"
+            HeightRequest="80"
+            WidthRequest="80"  />
+        <Label x:Name="ResetPasswordLabel"
+            Text="Please enter your email to reset your password or login for the first time"
+            VerticalOptions="Center"
+            HorizontalTextAlignment="Start"
+            IsVisible="True"
+            FontSize="17"
+            FontAttributes="Bold"
+            TextColor="#0079bb" />
+        <telerikInput:RadEntry 
+            x:Name="EmailEntry" 
+            HeightRequest="50"
+            WatermarkText="Enter Your Email" 
+            MaxLength="256"
+            Keyboard="Email" />
+        <Button x:Name="ResetPasswordButton"
+            Text="Reset Password" 
+            Clicked="ResetPassword_Clicked" 
+            Style="{StaticResource buttonStyle}" />
+        <Label
+            x:Name="EmailNotVerifiedLabel"
+            Text="The email was not found.  Please try again."
+            VerticalOptions="Start"
+            HorizontalTextAlignment="Start"
+            IsVisible="False"
+            FontSize="17"
+            FontAttributes="Bold"
+            TextColor="IndianRed" />
+        <Label x:Name="EmailResetSentLabel"
+            Text="An email was sent with a code to reset your password.  Please check your inbox and then enter the code here."
+            VerticalOptions="Start"
+            HorizontalTextAlignment="Center"
+            HeightRequest="50"
+            IsVisible="False"
+            FontSize="17"
+            FontAttributes="Bold"
+            TextColor="DarkGreen" />
+        <telerikInput:RadEntry 
+            x:Name="CodeEntry" 
+            HeightRequest="50"
+            WatermarkText="Enter Your Reset Password Code" 
+            IsVisible="False"
+            MaxLength="64" />
+        <Button x:Name="EnterCodeButton"
+            Text="Submit Code" 
+            IsVisible="False"
+            Clicked="EnterCode_Clicked" 
+            Style="{StaticResource buttonStyle}" />
+        <Label
+            x:Name="CodeEntryNotVerified"
+            Text="The code you entered could not be verified. The code may be invalid. Please try again or resend another code."
+            VerticalOptions="Start"
+            HorizontalTextAlignment="Start"
+            IsVisible="False"
+            FontSize="17"
+            FontAttributes="Bold"
+            TextColor="IndianRed" />
+        <Button x:Name="ResetCodeAgainButton"
+            Text="Resend Code" 
+            IsVisible="False"
+            Clicked="ResetCodeAgain_Clicked" 
+            Style="{StaticResource buttonStyle}" />
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+    mc:Ignorable="d"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:fontAwesome="clr-namespace:fontAwesome"
+    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+    xmlns:control="clr-namespace:MyGym"
+    xmlns:behavior="clr-namespace:MyGym"
+    x:Class="MyGym.AccountProfileEdit">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <StackLayout x:Name="MainLayout" 
+        Padding="15,10,15,10">
+        <control:AccountBackToProfile x:Name="backtoAccountProfile"/>
+        <Grid BackgroundColor="#0079bb" Padding="10" Margin="-20,0,-20,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="24" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Image HorizontalOptions="Start" Grid.Column="0">
+                <Image.Source>
+                    <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.UserAlt}" FontFamily="FontAwesomeSolid" Color="#fff"></FontImageSource>
+                </Image.Source>
+            </Image>
+            <Label Grid.Column="1" FontSize="18" VerticalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text=" Edit Profile" TextColor="#fff" FontSize="18" FontAttributes="Bold" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </Grid>
+        <ScrollView>
+            <StackLayout>
+                <telerikInput:RadEntry x:Name="Email" 
+                    WatermarkText="*Email" 
+                    HeightRequest="50"
+                    MaxLength="256" />
+                <telerikInput:RadEntry x:Name="First" 
+                    WatermarkText="*First" 
+                    HeightRequest="50"
+                    MaxLength="32" />
+                <telerikInput:RadEntry x:Name="Last" 
+                    WatermarkText="*Last" 
+                    HeightRequest="50"
+                    MaxLength="64" />
+                <telerikInput:RadEntry x:Name="Address" 
+                    WatermarkText="*Address" 
+                    HeightRequest="50"
+                    MaxLength="256" />
+                <telerikInput:RadEntry x:Name="Apt" 
+                    WatermarkText="Apt" 
+                    HeightRequest="50"
+                    MaxLength="32" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="85" />
+                    </Grid.ColumnDefinitions>
+                    <telerikInput:RadEntry x:Name="City"
+                        Grid.Column="0"
+                        WatermarkText="*City" 
+                        HeightRequest="50"
+                        MaxLength="32" />
+                    <telerikInput:RadListPicker x:Name="State" 
+                        DisplayMemberPath="Text" 
+                        Grid.Column="1">
+                    </telerikInput:RadListPicker>
+                    <Entry x:Name="Zip"
+                        Keyboard="Numeric"
+                        Grid.Column="2"
+                        HeightRequest="50">
+                    </Entry>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Entry x:Name="Phone"
+                        Keyboard="Numeric"
+                        Grid.Column="0"
+                        HeightRequest="50"
+                        Placeholder="*Phone"
+                        MaxLength="16">
+                        <Entry.Behaviors>
+                            <behavior:MaskedBehaviorPhone />
+                        </Entry.Behaviors>
+                    </Entry>
+                    <telerikInput:RadEntry x:Name="PhoneExt" 
+                        Grid.Column="1"
+                        WatermarkText="Ext" 
+                        HeightRequest="50"
+                        MaxLength="5" />
+                    <telerikInput:RadListPicker x:Name="PhoneType" 
+                        DisplayMemberPath="Text" 
+                        Grid.Column="2"
+                        Placeholder="--type--">
+                    </telerikInput:RadListPicker>
+                </Grid>
+               <telerikInput:RadEntry x:Name="EmergencyFirst" 
+                    WatermarkText="*Emergeny Contact First" 
+                    HeightRequest="50"
+                    MaxLength="32" />
+                <telerikInput:RadEntry x:Name="EmergencyLast" 
+                    WatermarkText="*Emergenct Contact Last" 
+                    HeightRequest="50"
+                    MaxLength="32" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Entry x:Name="EmergencyPhone"
+                        Keyboard="Numeric"
+                        Grid.Column="0"
+                        HeightRequest="50"
+                        Placeholder="*Phone"
+                        MaxLength="16">
+                        <Entry.Behaviors>
+                            <behavior:MaskedBehaviorPhone />
+                        </Entry.Behaviors>
+                    </Entry>
+                    <telerikInput:RadEntry x:Name="EmergencyPhoneExt" 
+                        Grid.Column="1"
+                        WatermarkText="Ext" 
+                        HeightRequest="50"
+                        MaxLength="5" />
+                    <telerikInput:RadListPicker x:Name="EmergencyPhoneType" 
+                        DisplayMemberPath="Text" 
+                        Grid.Column="2"
+                        Placeholder="--type--">
+                    </telerikInput:RadListPicker>
+                </Grid>
+                <telerikInput:RadListPicker x:Name="EmergencyRelationship" 
+                    DisplayMemberPath="Text"
+                    HeightRequest="48"
+                    Placeholder="--emergency contact relation to child--">
+                </telerikInput:RadListPicker>
+                <Button 
+                    Text="Submit" 
+                    Clicked="Submit_Clicked"
+                    Margin="0,3,0,3"
+                    Style="{StaticResource buttonStyle}" />
+                <Button 
+                    Text="Cancel" 
+                    Clicked="Cancel_Clicked" 
+                    Margin="0,3,0,3"
+                    Style="{StaticResource buttonCancelStyle}" />
+           </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

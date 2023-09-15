@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+    mc:Ignorable="d"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.GymRegister2">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+    </Shell.TitleView>
+    <ScrollView >
+        <StackLayout x:Name="MainLayout" Padding="15,10,15,10" Spacing="10">
+            <Label Text="Please complete registration"
+                VerticalOptions="Center"
+                HorizontalTextAlignment="Start"
+                IsVisible="True"
+                FontSize="17"
+                FontAttributes="Bold"
+                TextColor="#0079bb" />
+            <telerikInput:RadEntry x:Name="ChildFirst" 
+                WatermarkText="Child First" 
+                HeightRequest="48"
+                MaxLength="32" />
+            <telerikInput:RadEntry x:Name="ChildLast" 
+                WatermarkText="Child Last" 
+                HeightRequest="48"
+                MaxLength="64" />
+            <telerikInput:RadDatePicker x:Name="ChildDOB" 
+                Placeholder="Child Date of Birth" 
+                HeightRequest="48"
+                StyleClass="datePickerStyle"
+                Date="{Binding Today}">
+            </telerikInput:RadDatePicker>
+            <telerikInput:RadListPicker x:Name="HowHeard" 
+                Placeholder="How Did You Hear About Us?"
+                HeightRequest="48"
+                DisplayMemberPath="Name">
+            </telerikInput:RadListPicker>
+            <telerikInput:RadEntry x:Name="Password" 
+                WatermarkText="Password" 
+                HeightRequest="48"
+                MaxLength="24" 
+                IsPassword="True" />
+            <telerikInput:RadEntry x:Name="PasswordVerify" 
+                WatermarkText="Re-Type Password" 
+                HeightRequest="48"
+                MaxLength="24"
+                IsPassword="True" />
+            <Grid VerticalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="28" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="24"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <telerikPrimitives:RadCheckBox Grid.Column="0" x:Name="privavyCheckbox" />
+                <Button Grid.Column="1" 
+                    Text="*I agree to the privacy policy" 
+                    Clicked="AgreePrivacyButton_Clicked"
+                    TextTransform="None"
+                    HorizontalOptions="Start"
+                    Padding="0"
+                    Margin="0,5,0,5"
+                    HeightRequest="12"
+                    Style="{StaticResource linkSmallStyle}" />
+            </Grid>
+            <Button x:Name="registerButton"
+                Text="Register" 
+                Clicked="RegisterButton_Clicked" 
+                Style="{StaticResource buttonStyle}" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

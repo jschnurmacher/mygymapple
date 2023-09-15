@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <ProduceReferenceAssemblyInOutDir>true</ProduceReferenceAssemblyInOutDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2612" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.8.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="RestSharp" Version="110.2.1-alpha.0.13" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.54" />
+    <PackageReference Include="Telerik.UI.for.Xamarin" Version="2023.2.719" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.1.0" />
+    <PackageReference Include="Forms9Patch" Version="2.4.9" />
+    <PackageReference Include="Xamarin.Controls.SignaturePad.Forms" Version="3.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Views\" />
+    <None Remove="Views\Account\MyGym.ipa" />
+    <None Remove="Views\Account\" />
+    <None Remove="Views\Gym\" />
+    <None Remove="Resources\FontAwesome5Brand.otf" />
+    <None Remove="Resources\FontAwesome5Regular.otf" />
+    <None Remove="Resources\FontAwesome5Solid.otf" />
+    <None Remove="Views\ClassCardPackage\" />
+    <None Remove="Views\Enroll\" />
+    <None Remove="Views\Event\" />
+    <None Remove="Views\Party\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+    <Folder Include="Views\Account\" />
+    <Folder Include="Views\Gym\" />
+    <Folder Include="Views\ClassCardPackage\" />
+    <Folder Include="Views\Enroll\" />
+    <Folder Include="Views\Event\" />
+    <Folder Include="Views\Party\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\Account\AccountBillingEditHTML.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Views\Account\AccountBillingEditHTML.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\FontAwesome5Brand.otf" />
+    <EmbeddedResource Include="Resources\FontAwesome5Regular.otf" />
+    <EmbeddedResource Include="Resources\FontAwesome5Solid.otf" />
+  </ItemGroup>
+  <Import Project="..\mygymmobiledata\mygymmobiledata.projitems" Label="Shared" Condition="Exists('..\mygymmobiledata\mygymmobiledata.projitems')" />
+</Project>

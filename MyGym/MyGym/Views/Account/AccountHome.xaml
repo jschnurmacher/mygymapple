@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:fontAwesome="clr-namespace:fontAwesome"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.AccountHome">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <ScrollView >
+        <StackLayout x:Name="mainLayout" IsVisible="False"
+            Padding="15,0,15,0">
+            <Label x:Name="AccountEmailLabel"
+                VerticalOptions="Center"
+                HorizontalTextAlignment="Start"
+                FontSize="15"
+                Margin="-20,4,-20,0"
+                Padding="30,10,10,10"
+                Background="#0079bb"
+                FontAttributes="Bold"
+                TextColor="#fff" />
+            <telerikPrimitives:RadExpander x:Name="reminders"
+                Margin="0,0,0,4"
+                IsExpanded="False"
+                IsVisible="False">
+                <telerikPrimitives:RadExpander.Header>
+                    <telerikPrimitives:ExpanderHeader HeightRequest="35" VerticalOptions="Center" IndicatorColor="IndianRed">
+                        <Label Text="Reminders" FontSize="Small" FontAttributes="Bold" TextColor="#555" VerticalOptions="CenterAndExpand"></Label>
+                    </telerikPrimitives:ExpanderHeader>
+                </telerikPrimitives:RadExpander.Header>
+                <telerikPrimitives:RadExpander.Content>
+                    <StackLayout Margin="8">
+                        <Grid x:Name="completeEmergencyInformation" IsVisible="False">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="CompleteEmergencyInformation_Tapped" />
+                            </Grid.GestureRecognizers>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="18"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image HorizontalOptions="Start" Grid.Column="0" Margin="0,0,0,0">
+                                <Image.Source>
+                                    <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.PlusCircle}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                                </Image.Source>
+                            </Image>
+                            <Label Grid.Column="1" Text="Add emergency contact" TextColor="#0079bb" FontSize="15" FontAttributes="Bold" Margin="0,0,0,0" />
+                        </Grid>
+                        <Grid x:Name="completeVIMA" IsVisible="False">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="CompleteVIMA_Tapped" />
+                            </Grid.GestureRecognizers>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="18"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image HorizontalOptions="Start" Grid.Column="0" Margin="0,0,0,0">
+                                <Image.Source>
+                                    <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.PlusCircle}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                                </Image.Source>
+                            </Image>
+                            <Label Grid.Column="1" Text="Sign member agreements" TextColor="#0079bb" FontSize="15" FontAttributes="Bold" Margin="0,0,0,0" />
+                        </Grid>
+                        <Grid x:Name="completeWaiver" IsVisible="False">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="CompleteWaiver_Tapped" />
+                            </Grid.GestureRecognizers>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="18"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image HorizontalOptions="Start" Grid.Column="0" Margin="0,0,0,0">
+                                <Image.Source>
+                                    <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.PlusCircle}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                                </Image.Source>
+                            </Image>
+                            <Label Grid.Column="1" Text="Sign liability waiver" TextColor="#0079bb" FontSize="15" FontAttributes="Bold" Margin="0,0,0,0" />
+                        </Grid>
+                        <Grid x:Name="socksNeeded" IsVisible="False">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SocksNeeded_Tapped" />
+                            </Grid.GestureRecognizers>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="18"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image HorizontalOptions="Start" Grid.Column="0" Margin="0,0,0,0">
+                                <Image.Source>
+                                    <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.PlusCircle}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                                </Image.Source>
+                            </Image>
+                            <Label x:Name="socksNeededText" Grid.Column="1" TextColor="#0079bb" FontSize="15" FontAttributes="Bold" Margin="0,0,0,0" />
+                        </Grid>
+                    </StackLayout>
+                </telerikPrimitives:RadExpander.Content>
+            </telerikPrimitives:RadExpander>
+            <CollectionView x:Name="NoShowAlerts" VerticalOptions="Start" Margin="0,0,0,0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Margin="0, 5, 0, 5">
+                            <Label Text="{Binding Desc}" TextColor="#555" FontSize="10" FontAttributes="Bold" LineHeight="1.3">
+                            </Label>
+                            <Label Text="dismiss" TextColor="#0079bb" TextDecorations="Underline" FontSize="10" FontAttributes="Bold" LineHeight="1.3">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="DismissNoShowAlert_Tapped" CommandParameter="{Binding Desc}">
+                                    </TapGestureRecognizer>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Frame CornerRadius="5" BorderColor="#e0e0e0" Padding="10" Margin="0,0,0,0" HasShadow="False" VerticalOptions="Start">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="UpcomingVisits_Tapped" />
+                </Frame.GestureRecognizers>
+                <StackLayout>
+                    <Grid Margin="2" Padding="2,4,2,4" BackgroundColor="White" VerticalOptions="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="24" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="16" />
+                        </Grid.ColumnDefinitions>
+                        <Image HorizontalOptions="Start" Grid.Column="0" BackgroundColor="White">
+                            <Image.Source>
+                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.Calendar}" FontFamily="FontAwesomeSolid" Color="#00802b"></FontImageSource>
+                            </Image.Source>
+                        </Image>
+                        <Label Grid.Column="1" FontSize="18" BackgroundColor="White" VerticalOptions="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text=" Upcoming Visits" TextColor="#0079bb" FontSize="18" FontAttributes="Bold" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Image HorizontalOptions="Start" Grid.Column="2">
+                            <Image.Source>
+                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.CaretRight}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                            </Image.Source>
+                        </Image>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+            <Frame CornerRadius="5" BorderColor="#e0e0e0" Padding="10" Margin="0,0,0,0" HasShadow="False">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ScheduleClasses_Tapped" />
+                </Frame.GestureRecognizers>
+                <StackLayout>
+                    <Grid Margin="2" Padding="2,4,2,4" BackgroundColor="White" VerticalOptions="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="24" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="16" />
+                        </Grid.ColumnDefinitions>
+                        <Image HorizontalOptions="Start" Grid.Column="0" BackgroundColor="White">
+                            <Image.Source>
+                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.CalendarPlus}" FontFamily="FontAwesomeSolid" Color="#4FC3F7"></FontImageSource>
+                            </Image.Source>
+                        </Image>
+                        <Label Grid.Column="1" FontSize="18" BackgroundColor="White" VerticalOptions="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text=" Schedule Classes" TextColor="#0079bb" FontSize="18" FontAttributes="Bold" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Image HorizontalOptions="Start" Grid.Column="2">
+                            <Image.Source>
+                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.CaretRight}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                            </Image.Source>
+                        </Image>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+            <Frame CornerRadius="5" BorderColor="#e0e0e0" Padding="10" Margin="0,0,0,0" HasShadow="False">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="CampsEvents_Tapped" />
+                </Frame.GestureRecognizers>
+                <StackLayout>
+                    <Grid Margin="2" Padding="2,4,2,4" BackgroundColor="White">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="24" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="16" />
+                        </Grid.ColumnDefinitions>
+                        <Image HorizontalOptions="Start" Grid.Column="0" BackgroundColor="White">
+                            <Image.Source>
+                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.CalendarAlt}" FontFamily="FontAwesomeSolid" Color="#ff4da6"></FontImageSource>
+                            </Image.Source>
+                        </Image>
+                        <Label Grid.Column="1" FontSize="18" BackgroundColor="White" VerticalOptions="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text=" Camps/Events" TextColor="#0079bb" FontSize="18" FontAttributes="Bold" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Image HorizontalOptions="Start" Grid.Column="2">
+                            <Image.Source>
+                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.CaretRight}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                            </Image.Source>
+                        </Image>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+            <Frame CornerRadius="5" BorderColor="#e0e0e0" Padding="10" Margin="0,0,0,0" HasShadow="False">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Party_Tapped" />
+                </Frame.GestureRecognizers>
+                <StackLayout>
+                    <Grid Margin="2" Padding="2,4,2,4" BackgroundColor="White" VerticalOptions="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="24" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="16" />
+                        </Grid.ColumnDefinitions>
+                        <Image HorizontalOptions="Start" Grid.Column="0" BackgroundColor="White">
+                            <Image.Source>
+                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.BirthdayCake}" FontFamily="FontAwesomeSolid" Color="#0D47A1"></FontImageSource>
+                            </Image.Source>
+                        </Image>
+                        <Label Grid.Column="1" FontSize="18" BackgroundColor="White" VerticalOptions="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text=" Parties" TextColor="#0079bb" FontSize="18" FontAttributes="Bold" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Image HorizontalOptions="Start" Grid.Column="2">
+                            <Image.Source>
+                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.CaretRight}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                            </Image.Source>
+                        </Image>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+            <Frame CornerRadius="5" BorderColor="#e0e0e0" Padding="10" Margin="0,0,0,0" HasShadow="False">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Payments_Tapped" />
+                </Frame.GestureRecognizers>
+                <StackLayout>
+                    <Grid Margin="2" Padding="2,4,2,4" BackgroundColor="White" VerticalOptions="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="24" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="16" />
+                        </Grid.ColumnDefinitions>
+                        <Image HorizontalOptions="Start" Grid.Column="0" BackgroundColor="White">
+                            <Image.Source>
+                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.DollarSign}" FontFamily="FontAwesomeSolid" Color="#00802b"></FontImageSource>
+                            </Image.Source>
+                        </Image>
+                        <Label Grid.Column="1" FontSize="18" BackgroundColor="White" VerticalOptions="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text=" Payments" TextColor="#0079bb" FontSize="18" FontAttributes="Bold" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Image HorizontalOptions="Start" Grid.Column="2">
+                            <Image.Source>
+                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.CaretRight}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                            </Image.Source>
+                        </Image>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+            <Frame CornerRadius="5" BorderColor="#e0e0e0" Padding="10" Margin="0,0,0,0" HasShadow="False">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Profile_Tapped" />
+                </Frame.GestureRecognizers>
+                <StackLayout>
+                    <Grid Margin="2" Padding="2,4,2,4" BackgroundColor="White" VerticalOptions="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="24" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="16" />
+                        </Grid.ColumnDefinitions>
+                        <Image HorizontalOptions="Start" Grid.Column="0" BackgroundColor="White">
+                            <Image.Source>
+                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.UserAlt}" FontFamily="FontAwesomeSolid" Color="#777"></FontImageSource>
+                            </Image.Source>
+                        </Image>
+                        <Label Grid.Column="1" FontSize="18" BackgroundColor="White" VerticalOptions="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text=" Profile" TextColor="#0079bb" FontSize="18" FontAttributes="Bold" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Image HorizontalOptions="Start" Grid.Column="2">
+                            <Image.Source>
+                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.CaretRight}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                            </Image.Source>
+                        </Image>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+            <Frame CornerRadius="5" BorderColor="#e0e0e0" Padding="10" Margin="0,0,0,20" HasShadow="False">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Shop_Tapped" />
+                </Frame.GestureRecognizers>
+                <StackLayout>
+                    <Grid Margin="2" Padding="2,4,2,4" BackgroundColor="White" VerticalOptions="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="24" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="16" />
+                        </Grid.ColumnDefinitions>
+                        <Image HorizontalOptions="Start" Grid.Column="0" BackgroundColor="White">
+                            <Image.Source>
+                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.ShoppingCart}" FontFamily="FontAwesomeSolid" Color="Blue"></FontImageSource>
+                            </Image.Source>
+                        </Image>
+                        <Label Grid.Column="1" FontSize="18" BackgroundColor="White" VerticalOptions="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text=" SHOP" TextColor="#0079bb" FontSize="18" FontAttributes="Bold" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Image HorizontalOptions="Start" Grid.Column="2">
+                            <Image.Source>
+                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.CaretRight}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                            </Image.Source>
+                        </Image>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+         </StackLayout>
+     </ScrollView>
+</ContentPage>

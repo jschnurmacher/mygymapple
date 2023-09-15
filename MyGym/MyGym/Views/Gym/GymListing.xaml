@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:fontAwesome="clr-namespace:fontAwesome"
+    xmlns:control="clr-namespace:MyGym"
+    mc:Ignorable="d"
+    x:Class="MyGym.GymListing">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <StackLayout 
+        Padding="15,10,15,10">
+        <Label x:Name="selectAGym"
+            Text="Select a My Gym near you"
+            VerticalOptions="Center"
+            HorizontalTextAlignment="Start"
+            IsVisible="true"
+            FontSize="16"
+            Margin="-20,0,-20,0"
+            Padding="30,10,10,10"
+            Background="#0079bb"
+            FontAttributes="Bold"
+            TextColor="#fff" />
+        <Label x:Name="noGymsFound"
+            Text="We are sorry we did not find any gyms near you"
+            VerticalOptions="Start"
+            HorizontalTextAlignment="Center"
+            IsVisible="true"
+            FontSize="16"
+            Margin="0,10,0,10"
+            FontAttributes="Bold"
+            TextColor="#0079bb" />
+        <Button x:Name="findAGym" 
+            Text="Find a Gym Near You" 
+            Clicked="FindAGymButton_Clicked" 
+            Margin="0,10,0,10"
+            Style="{StaticResource buttonStyle}" />
+        <CollectionView x:Name="listView" SelectionChanged="listView_SelectionChanged" SelectionMode="Single" Margin="0,0,0,20">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Frame CornerRadius="5" BorderColor="#e0e0e0" Padding="5" Margin="0,0,5,5" HasShadow="False">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="18"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Column="0" Grid.Row="0" Text="{Binding Name}" Style="{StaticResource gymListingStyle}" FontSize="17" />
+                                <Label Grid.Column="0" Grid.Row="1" Text="{Binding Address1}" Style="{StaticResource gymListingSubStyle}" FontSize="15" />
+                                <Label Grid.Column="0" Grid.Row="2" Style="{StaticResource gymListingSubStyle}" FontSize="15">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding City}" />
+                                            <Span Text=", " />
+                                            <Span Text="{Binding State}" />
+                                            <Span Text=" " />
+                                            <Span Text="{Binding Zip}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label Grid.Column="0" Grid.Row="3" Text="{Binding Phone}" Style="{StaticResource gymListingSubStyle}" FontSize="15" />
+                                <Label Grid.Column="0" Grid.Row="4" Text="{Binding Distance}" Style="{StaticResource gymListingSubStyle}" FontSize="15" />
+                                <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="5" HorizontalOptions="Start">
+                                    <Image.Source>
+                                        <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.CaretRight}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                                    </Image.Source>
+                                </Image>
+                            </Grid>
+                        </Frame>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

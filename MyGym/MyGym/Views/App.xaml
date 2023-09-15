@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Application
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+    x:Class="MyGym.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="#0079bb"/>
+            </Style>
+            <Style TargetType="StackLayout" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="#fff"/>
+            </Style>
+            <Style x:Key="buttonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#ed0d91" />
+                <Setter Property="BorderColor" Value="#ed0d91" />
+                <Setter Property="BorderRadius" Value="5" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="TextTransform" Value="None" />
+                <Setter Property="Margin" Value="0,10,0,10"/>
+                <Setter Property="TextColor" Value="#fff" />
+                <Setter Property="FontSize" Value="17" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="buttonCancelStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#f0f0f0" />
+                <Setter Property="BorderColor" Value="#e0e0e0" />
+                <Setter Property="BorderRadius" Value="5" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="TextTransform" Value="None" />
+                <Setter Property="Margin" Value="0,0,0,0"/>
+                <Setter Property="TextColor" Value="#777" />
+                <Setter Property="FontSize" Value="17" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="buttonScheduleStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#ed0d91" />
+                <Setter Property="BorderColor" Value="#ed0d91" />
+                <Setter Property="BorderRadius" Value="5" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="TextTransform" Value="None" />
+                <Setter Property="Margin" Value="10,2,10,2"/>
+                <Setter Property="Padding" Value="10,2,10,2"/>
+                <Setter Property="TextColor" Value="#f0f0f0" />
+                <Setter Property="FontSize" Value="17" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="appointmentStyle" TargetType="telerikInput:RadCalendar">
+                <Setter Property="BackgroundColor" Value="#ed0d91" />
+                <Setter Property="Margin" Value="10,2,10,2"/>
+            </Style>
+            <Style x:Key="gymHomeButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="BorderColor" Value="LightGray" />
+                <Setter Property="BorderRadius" Value="5" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="TextTransform" Value="None" />
+                <Setter Property="TextColor" Value="#0079bb" />
+                <Setter Property="Margin" Value="0,3,0,3" />
+                <Setter Property="FontSize" Value="17" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="linkStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#fff" />
+                <Setter Property="BorderColor" Value="#fff" />
+                <Setter Property="BorderRadius" Value="1" />
+                <Setter Property="TextTransform" Value="None" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="Padding" Value="0,4,0,4" />
+                <Setter Property="TextColor" Value="#0079bb" />
+                <Setter Property="FontSize" Value="17" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="linkStyleLeft" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#fff" />
+                <Setter Property="BorderColor" Value="#fff" />
+                <Setter Property="BorderRadius" Value="1" />
+                <Setter Property="TextTransform" Value="None" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="TextColor" Value="#0079bb" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+            </Style>
+            <Style x:Key="enrollLinkStyle" TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="BackgroundColor" Value="#fff" />
+                <Setter Property="TextTransform" Value="None" />
+                <Setter Property="BorderColor" Value="#fff" />
+                <Setter Property="BorderRadius" Value="1" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="Padding" Value="0,0,0,0" />
+                <Setter Property="Margin" Value="0,0,0,0" />
+                <Setter Property="TextColor" Value="#0079bb" />
+                <Setter Property="FontSize" Value="17" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="linkSmallStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#fff" />
+                <Setter Property="BorderColor" Value="#fff" />
+                <Setter Property="BorderRadius" Value="1" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="TextTransform" Value="None" />
+                <Setter Property="TextColor" Value="#0079bb" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="gymListingStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+                <Setter Property="LineHeight" Value="1" />
+                <Setter Property="Padding" Value="0,0,0,0" />
+                <Setter Property="Margin" Value="0,0,0,0" />
+                <Setter Property="TextColor" Value="#0079bb" />
+                <Setter Property="FontSize" Value="17" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="gymListingSubStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+                <Setter Property="LineHeight" Value="1" />
+                <Setter Property="Padding" Value="0,0,0,0" />
+                <Setter Property="Margin" Value="0,0,0,0" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="#555" />
+            </Style>
+            <Style x:Key="gymClassLabelStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+                <Setter Property="LineHeight" Value="1" />
+                <Setter Property="Padding" Value="0,0,0,0" />
+                <Setter Property="Margin" Value="0,0,0,0" />
+                <Setter Property="FontSize" Value="17" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="#555" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

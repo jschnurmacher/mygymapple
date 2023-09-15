@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyGym.GymLogout">
+    <ContentPage.Content>
+        <StackLayout Padding="15,10,15,10">
+            <ActivityIndicator x:Name="activityIndicator" 
+                Grid.Column="0"
+                Grid.Row="0"
+                Color="#0079bb"
+                HorizontalOptions="Center"
+                Margin="0, 0, 0, 0"
+                IsVisible="True"
+                IsRunning="True"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

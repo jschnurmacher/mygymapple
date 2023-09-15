@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+    mc:Ignorable="d"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+    xmlns:fontAwesome="clr-namespace:fontAwesome"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.AccountProfileEditChild">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <StackLayout x:Name="MainLayout" 
+        Padding="15,10,15,10">
+        <Grid
+            VerticalOptions="Start"
+            Padding="0,0,0,5"
+            MinimumHeightRequest="32">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="BackToProfile_Tapped" />
+            </Grid.GestureRecognizers>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="16"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center">
+                <Image.Source>
+                    <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.ArrowCircleLeft}" FontFamily="FontAwesomeSolid" Color="#fff"></FontImageSource>
+                </Image.Source>
+            </Image>
+            <Label Grid.Column="1" Text="Back to Children" TextColor="#0079bb" FontSize="15" FontAttributes="Bold" VerticalOptions="Center" />
+        </Grid> 
+        <Label Text="Edit Child"
+            VerticalOptions="Center"
+            HorizontalTextAlignment="Start"
+            IsVisible="true"
+            FontSize="17"
+            Margin="-20,0,-20,0"
+            Padding="30,10,10,10"
+            Background="#0079bb"
+            FontAttributes="Bold"
+            TextColor="#fff" />
+        <ScrollView >
+            <StackLayout>
+             <telerikInput:RadEntry x:Name="ChildFirst" 
+                WatermarkText="Child First" 
+                HeightRequest="50"
+                MaxLength="32" />
+            <telerikInput:RadEntry x:Name="ChildLast" 
+                WatermarkText="Child Last" 
+                HeightRequest="50"
+                MaxLength="64" />
+            <telerikInput:RadDatePicker x:Name="ChildDOB" 
+                Placeholder="Child Date of Birth" 
+                HeightRequest="50"
+                StyleClass="datePickerStyle"
+                Date="{Binding Today}">
+            </telerikInput:RadDatePicker>
+            <telerikInput:RadListPicker x:Name="Gender" 
+                Placeholder="Gender"
+                HeightRequest="50"
+                DisplayMemberPath="Text">
+            </telerikInput:RadListPicker>
+            <Label Text="Allergies. Leave blank if not applicable." FontSize="14" Padding="0,0,0,0" Margin="0,0,0,0" />
+            <telerikInput:RadEntry x:Name="Allergies" 
+                WatermarkText="Allergies" 
+                HeightRequest="50"
+                MaxLength="256" />
+            <Label Text="Special Needs. Leave blank if not applicable." FontSize="14" Padding="0,0,0,0" Margin="0,0,0,0" />
+            <telerikInput:RadEntry x:Name="SpecialNeeds" 
+                WatermarkText="Special Needs" 
+                HeightRequest="50"
+                MaxLength="256" />
+            <Button 
+                Text="Submit" 
+                Clicked="Submit_Clicked" 
+                Style="{StaticResource buttonStyle}" />
+            <Button 
+                Text="Cancel" 
+                Clicked="Cancel_Clicked" 
+                Margin="0,3,0,20"
+                Style="{StaticResource buttonCancelStyle}" />
+            <Label
+                x:Name="InputMissing"
+                Text="Please enter all values"
+                VerticalOptions="Start"
+                HorizontalTextAlignment="Start"
+                IsVisible="False"
+                FontSize="17"
+                FontAttributes="Bold"
+                TextColor="IndianRed" />
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

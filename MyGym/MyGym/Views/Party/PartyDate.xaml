@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:control="clr-namespace:MyGym"
+    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+    x:Class="MyGym.PartyDate">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <StackLayout Padding="15,10,15,10">
+        <Label Text="Party Date"
+            VerticalOptions="Center"
+            HorizontalTextAlignment="Start"
+            IsVisible="true"
+            FontSize="17"
+            Margin="-20,0,-20,0"
+            Padding="30,10,10,10"
+            Background="#0079bb"
+            FontAttributes="Bold"
+            TextColor="#fff" />
+        <ActivityIndicator x:Name="activityIndicator" 
+            Grid.Column="0"
+            Grid.Row="0"
+            Color="#0079bb"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Margin="0,60,0,0"
+            Scale="1.5"
+            IsRunning="True"
+            IsEnabled="True"
+            IsVisible="False"/>
+        <telerikInput:RadListPicker x:Name="months"
+            Placeholder="Select a Month"
+            HeightRequest="50"
+            SelectionChanged="months_SelectionChanged"
+            DisplayMemberPath="Month">
+        </telerikInput:RadListPicker>
+        <telerikInput:RadListPicker x:Name="dates"
+            Placeholder="Select a Date"
+            IsEnabled="False"
+            HeightRequest="50"
+            SelectionChanged="dates_SelectionChanged"
+            DisplayMemberPath="Date">
+        </telerikInput:RadListPicker>
+        <telerikInput:RadListPicker x:Name="times"
+            Placeholder="Select a Time"
+            IsEnabled="False"
+            HeightRequest="50"
+            SelectionChanged="times_SelectionChanged"
+            DisplayMemberPath="Time">
+        </telerikInput:RadListPicker>
+        <Button x:Name="continueButton"
+            Text="Continue"
+            IsVisible="False"
+            Clicked="ContinueButton_Clicked"
+            Margin="0,0,0,0"
+            CommandParameter="{Binding Id}"
+            Style="{StaticResource buttonStyle}" />
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.PartyPackages">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+    </Shell.TitleView> 
+    <StackLayout Padding="15,10,15,10" >
+        <control:AccountBackToHome></control:AccountBackToHome>
+        <Label Text="Party Packages Available"
+            VerticalOptions="Center"
+            HorizontalTextAlignment="Start"
+            IsVisible="true"
+            FontSize="17"
+            Margin="-20,0,-20,10"
+            Padding="30,10,10,10"
+            Background="#0079bb"
+            FontAttributes="Bold"
+            TextColor="#fff" />
+        <Label x:Name="partyDeposit"
+            VerticalOptions="Center"
+            FontSize="12"
+            FontAttributes="Bold"
+            TextColor="#ed0d91" />
+        <BoxView HeightRequest="2" Color="#333" Margin="-40,2,-40,2"></BoxView>
+        <CollectionView
+            x:Name="listView"
+            SelectionMode="None"            
+            VerticalScrollBarVisibility="Never"
+            Margin="0,0,0,0">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Label x:Name="Display"
+                            Text="{Binding Name}"
+                            FontSize="17"
+                            FontAttributes="Bold"
+                            TextColor="#0079bb"/>
+                        <Label x:Name="Cost"
+                            Text="{Binding Cost}"
+                            FontSize="15"
+                            FontAttributes="Bold"
+                            TextColor="#0079bb" />
+                        <Button
+                            Text="Find Out More"
+                            Clicked="BookParty_Clicked"
+                            Margin="0,0,0,0"
+                            FontSize="15"
+                            CommandParameter="{Binding Id}"
+                            Style="{StaticResource buttonStyle}" />
+                        <BoxView HeightRequest="2" Color="#333" Margin="-40,10,-40,20"></BoxView>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

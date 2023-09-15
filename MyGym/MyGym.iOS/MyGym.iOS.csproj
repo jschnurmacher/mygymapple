@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B6124791-4C9B-46D5-9973-B80407A062CB}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{89a4fe7c-635d-49c9-8d8c-5cd363c0d68d}</TemplateGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>MyGym.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>MyGym.iOS</AssemblyName>
+    <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <ProvisioningType>automatic</ProvisioningType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>None</MtouchLink>
+    <MtouchInterpreter>-all</MtouchInterpreter>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="Entitlements.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Resources\FontAwesome5Brand.otf" />
+    <None Include="Resources\FontAwesome5Regular.otf" />
+    <None Include="Resources\FontAwesome5Solid.otf" />
+    <Compile Include="AppDelegate.cs" />
+    <None Include="Info.plist" />
+    <Compile Include="Main.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logo_40.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logo_60.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logo_58.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logo_87.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logo_80.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logo_120.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logo_120-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logo_180.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logo_20.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logo_40-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logo_29.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logo_58-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logo_40-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logo_80-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logo_76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logo_152.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logo_167.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logo_1024.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\20.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\29.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\152.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\167.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1024.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\48.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\55.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\88.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\100.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\172.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\196.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\216.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1024-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\16.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\32.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\32-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\64.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\128.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\256.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\256-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\512.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\512-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1024-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\60.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40-7.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\60-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58-7.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87-5.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80-7.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120-7.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120-4.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180-5.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\20-3.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40-4.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\29-3.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58-4.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40-5.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80-4.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\76-3.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\152-3.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\167-3.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1024-7.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120-5.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180-3.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\48-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\55-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58-5.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87-3.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80-5.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\88-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\100-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\172-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\196-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\216-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1024-4.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\16-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\32-4.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\32-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\64-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\128-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\256-4.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\256-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\512-4.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\512-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1024-5.png" />
+    <BundleResource Include="Resources\art.jpg" />
+    <BundleResource Include="Resources\balletjazzcombo.jpg" />
+    <BundleResource Include="Resources\Billing.html" />
+    <BundleResource Include="Resources\classolder1.jpg" />
+    <BundleResource Include="Resources\dance1.jpg" />
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\Default-Portrait.png" />
+    <BundleResource Include="Resources\Default-Portrait%402x.png" />
+    <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Resources\free.jpg" />
+    <BundleResource Include="Resources\fun.jpg" />
+    <BundleResource Include="Resources\gymnastics.jpg" />
+    <BundleResource Include="Resources\gymsters.jpg" />
+    <BundleResource Include="Resources\hiphop.jpg" />
+    <BundleResource Include="Resources\jrkickers.jpg" />
+    <BundleResource Include="Resources\karate.jpg" />
+    <BundleResource Include="Resources\kickers.jpg" />
+    <BundleResource Include="Resources\littlebundles.jpg" />
+    <BundleResource Include="Resources\littlekickers.jpg" />
+    <BundleResource Include="Resources\logo_small.png" />
+    <BundleResource Include="Resources\logo.png" />
+    <BundleResource Include="Resources\mightymites.jpg" />
+    <BundleResource Include="Resources\minikickers.jpg" />
+    <BundleResource Include="Resources\movetogether.jpg" />
+    <BundleResource Include="Resources\ninjatraining.jpg" />
+    <BundleResource Include="Resources\pno.jpg" />
+    <BundleResource Include="Resources\practiceandplay.jpg" />
+    <BundleResource Include="Resources\preballet.jpg" />
+    <BundleResource Include="Resources\preschoolprep.jpg" />
+    <BundleResource Include="Resources\siblings.jpg" />
+    <BundleResource Include="Resources\sports.jpg" />
+    <BundleResource Include="Resources\terrifictots.jpg" />
+    <BundleResource Include="Resources\tinytykes.jpg" />
+    <BundleResource Include="Resources\waddlers.jpg" />
+    <BundleResource Include="Resources\wait0.webp" />
+    <BundleResource Include="Resources\wait1.webp" />
+    <BundleResource Include="Resources\wait2.webp" />
+    <BundleResource Include="Resources\wait3.webp" />
+    <BundleResource Include="Resources\wait4.webp" />
+    <BundleResource Include="Resources\wait5.webp" />
+    <BundleResource Include="Resources\wait6.webp" />
+    <BundleResource Include="Resources\wait7.webp" />
+    <BundleResource Include="Resources\wait8.webp" />
+    <BundleResource Include="Resources\wait9.webp" />
+    <BundleResource Include="Resources\wait10.webp" />
+    <BundleResource Include="Resources\wait11.webp" />
+    <BundleResource Include="Resources\wait12.webp" />
+    <BundleResource Include="Resources\wait13.webp" />
+    <BundleResource Include="Resources\wait14.webp" />
+    <BundleResource Include="Resources\wait15.webp" />
+    <BundleResource Include="Resources\wait16.webp" />
+    <BundleResource Include="Resources\wait17.webp" />
+    <BundleResource Include="Resources\whizkids.jpg" />
+    <BundleResource Include="Resources\zumbakids.jpg" />
+    <BundleResource Include="Resources\zumbakidsjr.jpg" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120-4.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\64-2 1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120-5.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120-7.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\100-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\76-3.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\167-3.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\16-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1024-7.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\32-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180-5.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\88-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\48-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1024-5.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\29-3.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\512-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1024-4.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\48-2 1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\55-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\32-4.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180-3.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\512-4.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\55-2 1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\256-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\128-2 1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\64-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40-7.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80-7.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\60-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\256-4.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40-4.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80-4.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80-5.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40-5.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\256-2 1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\196-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\20-3.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\172-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87-5.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58-5.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\128-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87-3.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58-4.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\152-3.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58-7.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\216-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2612" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.8.0" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\MyGym\MyGym.csproj">
+      <Project>{973E4853-194D-42B3-8CA3-B5323B4F3834}</Project>
+      <Name>MyGym</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

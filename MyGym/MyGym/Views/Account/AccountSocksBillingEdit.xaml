@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+    xmlns:fontAwesome="clr-namespace:fontAwesome"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.AccountSocksBillingEdit">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <StackLayout x:Name="MainLayout" Padding="15,10,15,10">
+        <ScrollView >
+            <StackLayout>
+                <Label Text="Please enter your billing information"
+                    VerticalOptions="Center"
+                    HorizontalTextAlignment="Start"
+                    IsVisible="True"
+                    FontSize="14"
+                    FontAttributes="Bold"
+                    TextColor="#0079bb" />
+                <telerikInput:RadEntry x:Name="CardName" 
+                    WatermarkText="Full Name on Card" 
+                    HeightRequest="50"
+                    MaxLength="32" />
+                <telerikInput:RadEntry x:Name="Email" 
+                    WatermarkText="Email" 
+                    HeightRequest="50"
+                    MaxLength="256"
+                    Keyboard="Email" />
+                <telerikInput:RadEntry x:Name="Address" 
+                    WatermarkText="Address" 
+                    HeightRequest="50"
+                    MaxLength="64" />
+                <telerikInput:RadEntry x:Name="Apt" 
+                    WatermarkText="Apt" 
+                    HeightRequest="50"
+                    MaxLength="32" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="85" />
+                    </Grid.ColumnDefinitions>
+                    <telerikInput:RadEntry x:Name="City"
+                        Grid.Column="0"
+                        WatermarkText="City" 
+                        HeightRequest="50"
+                        MaxLength="32" />
+                    <telerikInput:RadListPicker x:Name="State" 
+                        DisplayMemberPath="Text" 
+                        Grid.Column="1">
+                    </telerikInput:RadListPicker>
+                    <telerikInput:RadEntry x:Name="Zip" 
+                        Grid.Column="2"
+                        HeightRequest="50"
+                        MaxLength="10" />
+                </Grid>
+                <telerikInput:RadEntry x:Name="CCNum"
+                    HeightRequest="50"
+                    MaxLength="16"
+                    WatermarkText="Credit Card Number"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <telerikInput:RadListPicker x:Name="CCExpMonth" 
+                        DisplayMemberPath="Text" 
+                        Grid.Column="0"
+                        Placeholder="Exp Mon">
+                    </telerikInput:RadListPicker>
+                    <telerikInput:RadListPicker x:Name="CCExpYear" 
+                        DisplayMemberPath="Text" 
+                        Grid.Column="1"
+                        Placeholder="Exp Year">
+                    </telerikInput:RadListPicker>
+                    <telerikInput:RadEntry x:Name="CCVN" 
+                        Grid.Column="2"
+                        WatermarkText="CCVN" 
+                        HeightRequest="50"
+                        MaxLength="4" />
+                </Grid>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="48"/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="submitButton"
+                        Text="Submit" 
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        Clicked="SubmitButton_Clicked" 
+                        Style="{StaticResource buttonStyle}" />
+                    <Button x:Name="cancelButton"
+                        Text="Cancel" 
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        Clicked="CancelButton_Clicked" 
+                        Style="{StaticResource buttonCancelStyle}" />
+                    <ActivityIndicator x:Name="activityIndicator" 
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        Color="#0079bb"
+                        HorizontalOptions="Center"
+                        Margin="0, 0, 0, 0"
+                        IsVisible="False"
+                        IsRunning="True"/>
+                 </Grid>
+             </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

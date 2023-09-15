@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.PartyAddOns">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+   <ContentPage.Content>
+       <StackLayout x:Name="stackLayout" Padding="15,10,15,10" >
+            <Label x:Name="partyAddOnsTitle"
+                Text="Party Add-Ons"
+                VerticalOptions="Center"
+                HorizontalTextAlignment="Start"
+                FontSize="17"
+                Margin="-20,0,-20,10"
+                Padding="30,10,10,10"
+                Background="#0079bb"
+                FontAttributes="Bold"
+                TextColor="#fff" />
+            <Grid
+                x:Name="halfHourGrid"                
+                IsVisible="False"
+                Margin="0,2,0,2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="24" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <telerikPrimitives:RadCheckBox
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    WidthRequest="24"
+                    IsChecked="{Binding HalfHourChecked}"
+                    IsCheckedChanged="HalfHour_IsCheckedChanged">
+                </telerikPrimitives:RadCheckBox>
+                <Label x:Name="halfHourDisplay" Grid.Column="1" Grid.Row="0" FontSize="13" Margin="10,3,0,3"></Label>
+            </Grid>
+            <Label
+                x:Name="partyNumKids"                
+                HorizontalTextAlignment="Start"
+                FontSize="14"
+                FontAttributes="Bold"
+                TextColor="#333" />
+            <Label x:Name="totalKidsLabel" FontSize="13" Margin="10,3,0,3" Text="How many total kids will be attending: "></Label>
+            <telerikInput:RadListPicker
+                x:Name="totalKidsPicker"                
+                HeightRequest="50"
+                WidthRequest="100"
+                SelectionChanged="totalKidsPicker_SelectionChanged">
+            </telerikInput:RadListPicker>
+            <Label 
+                Text="Personalize your party with the following upgrades:"               
+                HorizontalTextAlignment="Start"
+                FontSize="14"
+                FontAttributes="Bold"
+                TextColor="#333" />
+            <CollectionView
+                x:Name="addOnList"                
+                VerticalScrollBarVisibility="Never">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,2,0,2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="24" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <telerikPrimitives:RadCheckBox
+                                ClassId="{Binding Id}"
+                                Grid.Column="0"
+                                Grid.Row="0"
+                                WidthRequest="24"
+                                IsChecked="{Binding Checked}"
+                                IsCheckedChanged="AddOn_IsCheckedChanged">
+                            </telerikPrimitives:RadCheckBox>
+                            <Label Grid.Column="1" Grid.Row="0" FontSize="13" Margin="10,3,0,3" Text="{Binding Display}"></Label>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button x:Name="continueButton"
+                Text="Continue" 
+                Clicked="continueButton_Clicked"
+                Padding="0"
+                Margin="0,10,0,10"
+                Style="{StaticResource buttonStyle}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

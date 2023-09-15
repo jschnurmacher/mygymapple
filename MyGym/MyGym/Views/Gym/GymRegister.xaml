@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+    mc:Ignorable="d"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.GymRegister">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+    </Shell.TitleView>
+    <ScrollView>
+        <StackLayout x:Name="MainLayout" 
+            Padding="15,10,15,10">
+            <Image 
+                Source="logo.png" 
+                HeightRequest="80" WidthRequest="80"  />
+            <Label Text="Please enter the required information"
+                VerticalOptions="Center"
+                HorizontalTextAlignment="Start"
+                IsVisible="True"
+                FontSize="17"
+                FontAttributes="Bold"
+                TextColor="#0079bb" />
+            <telerikInput:RadEntry x:Name="ParentFirst" 
+                WatermarkText="Parent First" 
+                HeightRequest="50"
+                MaxLength="32" />
+            <telerikInput:RadEntry x:Name="ParentLast" 
+                WatermarkText="Parent last" 
+                HeightRequest="50"
+                MaxLength="64" />
+            <telerikInput:RadEntry x:Name="Email" 
+                WatermarkText="Email" 
+                HeightRequest="50"
+                MaxLength="32"
+                Keyboard="Email" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Button x:Name="submitButton"
+                    Text="Continue" 
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Clicked="RegisterButton_Clicked" 
+                    Style="{StaticResource buttonStyle}" />
+                <ActivityIndicator x:Name="activityIndicator" 
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Color="#0079bb"
+                    HorizontalOptions="Center"
+                    Margin="0, 0, 0, 0"
+                    IsVisible="False"
+                    IsRunning="True"/>
+            </Grid>
+            <Label
+                x:Name="InputMissing"
+                Text="Please enter all values"
+                VerticalOptions="Start"
+                HorizontalTextAlignment="Start"
+                IsVisible="False"
+                FontSize="17"
+                FontAttributes="Bold"
+                TextColor="IndianRed" />
+            <Label
+                x:Name="InvalidEmail"
+                Text="Please enter a valid email"
+                VerticalOptions="Start"
+                HorizontalTextAlignment="Start"
+                IsVisible="False"            
+                FontSize="17"
+                FontAttributes="Bold"
+                TextColor="IndianRed" />
+            <Label
+                x:Name="EmailExists"
+                Text="It appears your email is already registered with My Gym.  Please go to the log-in page to log-in or choose 'Forgot or Reset Password'"
+                VerticalOptions="Start"
+                HorizontalTextAlignment="Start"
+                IsVisible="False"
+                FontSize="17"
+                FontAttributes="Bold"
+                TextColor="IndianRed" />
+            <Button x:Name="LoginPageButton"
+                Text="Go To Log In Page" 
+                Clicked="LoginPageButton_Clicked"
+                IsVisible="False"
+                Style="{StaticResource buttonStyle}" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

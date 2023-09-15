@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:fontAwesome="clr-namespace:fontAwesome"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.AccountProfile">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <StackLayout
+        Padding="15,10,15,10">
+        <control:AccountBackToHome x:Name="backtoAccountHome"/>
+        <Grid BackgroundColor="#0079bb" Padding="10" Margin="-20,0,-20,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="24" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Image HorizontalOptions="Start" Grid.Column="0">
+                <Image.Source>
+                    <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.UserAlt}" FontFamily="FontAwesomeSolid" Color="#fff"></FontImageSource>
+                </Image.Source>
+            </Image>
+            <Label Grid.Column="1" FontSize="18" VerticalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text=" Profile" TextColor="#fff" FontSize="18" FontAttributes="Bold" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </Grid>
+        <Frame CornerRadius="5" BorderColor="#e0e0e0" Padding="10" Margin="0,0,0,0" HasShadow="False">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Profile_Tapped" />
+            </Frame.GestureRecognizers>
+            <StackLayout>
+                <Grid Margin="2" Padding="2,4,2,4" BackgroundColor="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="24" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="18" />
+                    </Grid.ColumnDefinitions>
+                    <Image HorizontalOptions="Start" Grid.Column="0" BackgroundColor="White" Margin="0,-2,0,0">
+                        <Image.Source>
+                            <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.UserAlt}" FontFamily="FontAwesomeSolid" Color="#777"></FontImageSource>
+                        </Image.Source>
+                    </Image>
+                    <Label Grid.Column="1" FontSize="18" BackgroundColor="White" VerticalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text=" Profile" TextColor="#0079bb" FontSize="18" FontAttributes="Bold" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Image HorizontalOptions="Start" Grid.Column="2" BackgroundColor="White" Margin="0,-2,0,0">
+                        <Image.Source>
+                            <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.CaretRight}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                        </Image.Source>
+                    </Image>
+                </Grid>
+            </StackLayout>
+        </Frame>
+        <Frame CornerRadius="5" BorderColor="#e0e0e0" Padding="10" Margin="0,0,0,0" HasShadow="False">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Marketing_Tapped" />
+            </Frame.GestureRecognizers>
+            <StackLayout>
+                <Grid Margin="2" Padding="2,4,2,4" BackgroundColor="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="24" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="18" />
+                    </Grid.ColumnDefinitions>
+                    <Image HorizontalOptions="Start" Grid.Column="0" BackgroundColor="White">
+                        <Image.Source>
+                            <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.MailBulk}" FontFamily="FontAwesomeSolid" Color="#009933"></FontImageSource>
+                        </Image.Source>
+                    </Image>
+                    <Label Grid.Column="1" FontSize="18" BackgroundColor="White" VerticalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text=" Marketing" TextColor="#0079bb" FontSize="18" FontAttributes="Bold" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Image HorizontalOptions="Start" Grid.Column="2" BackgroundColor="White" Margin="0,-2,0,0">
+                        <Image.Source>
+                            <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.CaretRight}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                        </Image.Source>
+                    </Image>
+                </Grid>
+            </StackLayout>
+        </Frame>
+        <Frame CornerRadius="5" BorderColor="#e0e0e0" Padding="10" Margin="0,0,0,0" HasShadow="False">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Children_Tapped" />
+            </Frame.GestureRecognizers>
+            <StackLayout>
+                <Grid Margin="2" Padding="2,4,2,4" BackgroundColor="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="24" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="18" />
+                    </Grid.ColumnDefinitions>
+                    <Image HorizontalOptions="Start" Grid.Column="0" BackgroundColor="White" Margin="0,-6,0,0">
+                        <Image.Source>
+                            <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.Child}" FontFamily="FontAwesomeSolid" Color="#0D47A1"></FontImageSource>
+                        </Image.Source>
+                    </Image>
+                    <Label Grid.Column="1" FontSize="18" BackgroundColor="White" VerticalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text=" Children" TextColor="#0079bb" FontSize="18" FontAttributes="Bold" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Image HorizontalOptions="Start" Grid.Column="2" BackgroundColor="White" Margin="0,-2,0,0">
+                        <Image.Source>
+                            <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.CaretRight}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                        </Image.Source>
+                    </Image>
+                </Grid>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</ContentPage>
+
+
+

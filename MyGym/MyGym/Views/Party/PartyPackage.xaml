@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.PartyPackage">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+    </Shell.TitleView> 
+    <StackLayout Padding="15,10,15,10" >
+        <control:PartyBackToHome></control:PartyBackToHome>
+        <Label x:Name="partyPackageTitle"
+            VerticalOptions="Center"
+            HorizontalTextAlignment="Start"
+            IsVisible="true"
+            FontSize="17"
+            Margin="-20,0,-20,10"
+            Padding="30,10,10,10"
+            Background="#0079bb"
+            FontAttributes="Bold"
+            TextColor="#fff" />
+        <Label x:Name="partyDeposit"
+            VerticalOptions="Center"
+            FontSize="12"
+            FontAttributes="Bold"
+            TextColor="#ed0d91" />
+        <BoxView HeightRequest="2" Color="#333" Margin="-40,2,-40,2"></BoxView>
+        <Label x:Name="Cost"
+            Text="{Binding Cost}"
+            FontSize="15"
+            FontAttributes="Bold"
+            TextColor="#0079bb" />
+        <CollectionView
+            x:Name="partyCaptions"
+            SelectionMode="None"            
+            VerticalScrollBarVisibility="Never">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Label Text="{Binding Caption}" FontSize="15" FontAttributes="Bold" TextColor="#333" />
+                        <CollectionView
+                            SelectionMode="None"
+                            VerticalScrollBarVisibility="Never"
+                            HeightRequest="{Binding BirthdayCaptionItemsHeight}"
+                            ItemsSource="{Binding BirthdayCaptionItems}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout>
+                                        <Label Text="{Binding Item}" FontSize="13" FontAttributes="Bold" TextColor="#333" />
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button x:Name="bookButton"
+            Clicked="BookParty_Clicked"
+            Margin="0,0,0,0"
+            FontSize="15"
+            CommandParameter="{Binding Id}"
+            Style="{StaticResource buttonStyle}" />
+        <Button x:Name="contactButton"
+            Clicked="ContactParty_Clicked"
+            Text="Booking is Unavailable Online. Contact Us."
+            IsVisible="False"
+            Margin="0,0,0,0"
+            FontSize="15"
+            CommandParameter="{Binding Id}"
+            Style="{StaticResource buttonStyle}" />
+    </StackLayout>
+</ContentPage>

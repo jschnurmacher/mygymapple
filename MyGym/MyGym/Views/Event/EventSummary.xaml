@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.EventSummary">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+   <ScrollView x:Name="scrollView" HorizontalOptions="FillAndExpand">
+        <StackLayout Padding="15,10,15,10">
+            <Label x:Name="EnrollTitle"
+                Text="Enroll in Camps/Events"
+                VerticalOptions="Center"
+                HorizontalTextAlignment="Start"
+                FontSize="17"
+                Margin="-20,10,-20,0"
+                Padding="30,10,10,10"
+                Background="#0079bb"
+                FontAttributes="Bold"
+                TextColor="#fff" />
+                <StackLayout x:Name="stackLayout" Padding="10,10,10,100">
+                    <Label x:Name="EventName" FontSize="16" FontAttributes="Bold" />
+                    <Label x:Name="SelectedSessions" FontSize="15" Padding="0,0,0,0" Margin="0,0,0,0" />
+                    <Label x:Name="CostSummary" Text="" FontSize="15" Padding="0,0,0,0" Margin="0,0,0,0" />
+                    <Label x:Name="SocksText" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontSize="15" FontAttributes="Bold" Margin="0,0,0,10" />
+                    <CollectionView
+                        x:Name="listView"
+                        SelectionMode="None"                    
+                        VerticalScrollBarVisibility="Never">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Margin="4">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="24" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="16" />
+                                            <RowDefinition Height="16" />
+                                        </Grid.RowDefinitions>
+                                        <CheckBox IsChecked="{Binding IncludeSocks}" ClassId="{Binding ChildId}" Grid.Column="0" Grid.Row="0" CheckedChanged="ChildSocksCheckbox_CheckedChanged"  ></CheckBox>
+                                        <Label Text="{Binding SocksText}" Grid.Column="1" Grid.Row="0" FontSize="12" FontAttributes="Bold" Margin="0,0,0,0" />
+                                        <Label Text="{Binding SocksReceivedOrPurchasedText}" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" FontSize="12" FontAttributes="Bold" Margin="0,0,0,0" />
+                                    </Grid>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <telerikPrimitives:RadExpander Margin="0,0,0,20" IsExpanded="False">
+                        <telerikPrimitives:RadExpander.Header>
+                            <telerikPrimitives:ExpanderHeader HeightRequest="30" VerticalOptions="Center">
+                                <Label Text="Release of Liability Agreement" FontSize="Small" FontAttributes="Bold" TextColor="#555" VerticalOptions="CenterAndExpand"></Label>
+                            </telerikPrimitives:ExpanderHeader>
+                        </telerikPrimitives:RadExpander.Header>
+                        <telerikPrimitives:RadExpander.Content>
+                            <StackLayout Margin="10">
+                                <Label x:Name="ReleaseOfLiability" Text="dfgfffg fg fgf gf gf fg fgf f fgfgffgfgfgfgf gf f g" TextColor="#555"></Label>
+                            </StackLayout>
+                        </telerikPrimitives:RadExpander.Content>
+                    </telerikPrimitives:RadExpander>
+                    <Button x:Name="continueButton"
+                        Text="Schedule Camps/Events" 
+                        Clicked="ScheduleCampsEvents_Clicked" 
+                        Padding="0"
+                        Margin="0,10,0,30"
+                        Style="{StaticResource buttonStyle}" />
+                </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

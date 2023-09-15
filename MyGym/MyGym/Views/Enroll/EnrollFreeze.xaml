@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+    xmlns:forms="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.EnrollFreeze">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <StackLayout>
+        <Label x:Name="EnrollTitle"
+            Text="Freeze Enrollment"
+            VerticalOptions="Center"
+            HorizontalTextAlignment="Start"
+            FontSize="17"
+            Margin="0, 10, 0, 0"
+            Padding="10"
+            Background="#0079bb"
+            FontAttributes="Bold"
+            TextColor="#fff" />
+        <ScrollView x:Name="scrollView">
+            <StackLayout x:Name="stackLayout">
+                <Label
+                    Text="We offer you the option to freeze your enrollment for a period of weeks where payment is not due and your child will return to class at the end of the freeze period."
+                    FontSize="15" 
+                    FontAttributes="Bold"
+                    Margin="10" />
+                <Label x:Name="ClassName" 
+                    FontSize="18" 
+                    FontAttributes="Bold"
+                    Margin="10" />
+                <Label 
+                    Text="Last date your child will attend before freeze:"
+                    VerticalOptions="Start"
+                    Margin="10,0,10,0"
+                    HorizontalTextAlignment="Start"
+                    IsVisible="True"
+                    FontSize="17"
+                    FontAttributes="Bold"
+                    TextColor="#0079bb" />
+                <telerikInput:RadListPicker 
+                    x:Name="Dates" 
+                    Margin="10,0,10,0"
+                    HeightRequest="50"
+                    Placeholder="--select a date--"
+                    SelectionChanged="Dates_SelectionChanged"
+                    DisplayMemberPath="Text">
+                </telerikInput:RadListPicker>
+                <Label Text="Choose the number of weeks to freeze:"
+                    VerticalOptions="Start"
+                    Margin="10,0,10,0"
+                    HorizontalTextAlignment="Start"
+                    IsVisible="true"
+                    FontSize="17"
+                    FontAttributes="Bold"
+                    TextColor="#0079bb" />
+                <telerikInput:RadListPicker x:Name="Weeks" 
+                    Margin="10,0,10,0"
+                    Placeholder="--select # of weeks--"
+                    HeightRequest="50"
+                    SelectionChanged="Weeks_SelectionChanged"
+                    DisplayMemberPath="Text">
+                </telerikInput:RadListPicker>
+                <Label x:Name="FreezeTerms" IsVisible="False" FontSize="16" FontAttributes="Bold" Padding="0,0,0,0" Margin="10" TextColor="DarkGreen" />
+                <Label Text="Please sign to agree to the freeze:"
+                    VerticalOptions="Start"
+                    Margin="10,0,10,0"
+                    HorizontalTextAlignment="Start"
+                    IsVisible="true"
+                    FontSize="17"
+                    FontAttributes="Bold"
+                    TextColor="#0079bb" />
+                <forms:SignaturePadView
+	                x:Name="signatureView"
+	                StrokeWidth="3"
+                    HeightRequest="80"
+                    Margin="0,15,0,10"
+	                StrokeColor="Black"
+	                Background="White" />
+                <Button
+                    Text="Freeze" 
+                    Clicked="Continue_Clicked" 
+                    Padding="0"
+                    Margin="10,10,10,30"
+                    Style="{StaticResource buttonStyle}" />
+                <Label
+                    x:Name="InputMissing"
+                    Text="Please select last class date, # of weeks and sign the agreement"
+                    VerticalOptions="Start"
+                    HorizontalTextAlignment="Start"
+                    IsVisible="False"
+                    FontSize="17"
+                    Margin="10,5,10,30"
+                    FontAttributes="Bold"
+                    TextColor="IndianRed" />
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

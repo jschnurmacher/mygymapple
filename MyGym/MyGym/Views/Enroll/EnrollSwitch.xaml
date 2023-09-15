@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+    xmlns:forms="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.EnrollSwitch">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <StackLayout>
+        <Label x:Name="EnrollTitle"
+            Text="Switch Classes"
+            VerticalOptions="Center"
+            HorizontalTextAlignment="Start"
+            FontSize="17"
+            Margin="0, 10, 0, 0"
+            Padding="10"
+            Background="#0079bb"
+            FontAttributes="Bold"
+            TextColor="#fff" />
+        <ScrollView x:Name="scrollView">
+            <StackLayout x:Name="stackLayout">
+                <Label x:Name="ChildName" 
+                    FontSize="17" 
+                    FontAttributes="Bold"
+                    Margin="10,0,10,0" />
+                <Label x:Name="ClassName" 
+                    FontSize="17" 
+                    FontAttributes="Bold"
+                    Margin="10,0,10,0" />
+                <Label Text="Switch To:"
+                    VerticalOptions="Start"
+                    Margin="10,0,10,0"
+                    HorizontalTextAlignment="Start"
+                    IsVisible="true"
+                    FontSize="17"
+                    FontAttributes="Bold"
+                    TextColor="#0079bb" />
+                <telerikInput:RadListPicker x:Name="Classes"
+                    Margin="10,0,10,0"
+                    Placeholder="--select class--"
+                    SelectionChanged="Class_SelectionChanged"
+                    DisplayMemberPath="Text">
+                </telerikInput:RadListPicker>
+                <Label x:Name="LastDayAttend" 
+                    Text="Last date your child will attend before switch:"
+                    VerticalOptions="Start"
+                    Margin="10,0,10,0"
+                    HorizontalTextAlignment="Start"
+                    IsVisible="True"
+                    FontSize="17"
+                    FontAttributes="Bold"
+                    TextColor="#0079bb" />
+                <telerikInput:RadListPicker 
+                    x:Name="Dates" 
+                    Margin="10,0,10,0"
+                    HeightRequest="50"
+                    Placeholder="--select last class date--"
+                    SelectionChanged="Dates_SelectionChanged"
+                    DisplayMemberPath="Text">
+                </telerikInput:RadListPicker>
+                <Label x:Name="SwitchTerms" IsVisible="False" FontSize="16" FontAttributes="Bold" Padding="0,0,0,0" Margin="10" TextColor="DarkGreen" />
+                <ActivityIndicator x:Name="activityIndicator" 
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Color="#0079bb"
+                    HorizontalOptions="Center"
+                    Margin="0, 0, 0, 0"
+                    IsVisible="False"
+                    IsRunning="True"/>
+                <Button
+                    x:Name="SwitchClasses"
+                    Text="Switch Classes" 
+                    Clicked="Continue_Clicked" 
+                    Padding="0"
+                    Margin="10,10,10,30"
+                    Style="{StaticResource buttonStyle}" />
+                <Label
+                    x:Name="InputMissing"
+                    Text="Please select class to switch to and last class date"
+                    VerticalOptions="Start"
+                    HorizontalTextAlignment="Start"
+                    IsVisible="False"
+                    FontSize="17"
+                    Margin="10,5,10,30"
+                    FontAttributes="Bold"
+                    TextColor="IndianRed" />
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

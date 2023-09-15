@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+    mc:Ignorable="d"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:control="clr-namespace:MyGym"
+    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+    x:Class="MyGym.GymLogin">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <ScrollView >
+        <StackLayout Padding="15,10,15,10">
+            <Image
+                Source="logo.png"
+                HeightRequest="80"
+                WidthRequest="80"  />
+            <Label
+                Text="Log In or Register"
+                VerticalOptions="Center"
+                HorizontalTextAlignment="Start"
+                IsVisible="True"
+                FontSize="17"
+                FontAttributes="Bold"
+                TextColor="#0079bb" />
+            <telerikInput:RadEntry 
+                x:Name="EmailEntry" 
+                HeightRequest="50"
+                WatermarkText="Enter Your Email" 
+                MaxLength="256"
+                Keyboard="Email" />
+            <telerikInput:RadEntry
+                x:Name="PasswordEntry"
+                HeightRequest="50"
+                WatermarkText="Enter Your Password" 
+                MaxLength="32"
+                IsPassword="True" />
+            <Button 
+                Text="Log In" 
+                Clicked="LoginButton_Clicked" 
+                Style="{StaticResource buttonStyle}" />
+            <Label
+                Text="If you forgot your password, want to reset your password or if this is the first time your are logging in to My Gym click the link below." 
+                VerticalOptions="Start"
+                HorizontalTextAlignment="Start"
+                FontSize="17"/>
+            <Button 
+                Text="Forgot or Reset Password" 
+                Clicked="ForgotPassword_Clicked"
+                TextTransform="None"
+                Style="{StaticResource linkStyle}" />
+            <Label
+                x:Name="LoginNotVerified"
+                Text="Email and password was not verified.  Please try again."
+                VerticalOptions="Start"
+                HorizontalTextAlignment="Start"
+                IsVisible="false"
+                FontSize="17"
+                FontAttributes="Bold"
+                TextColor="IndianRed" />
+            <BoxView
+                HorizontalOptions="FillAndExpand"
+                WidthRequest="1"
+                HeightRequest="2"
+                Color="#0079bb"/>
+            <Label Text="OR"
+                VerticalOptions="Start"
+                HorizontalTextAlignment="Center"
+                IsVisible="true"
+                FontSize="18"
+                FontAttributes="Bold"
+                TextColor="#0079bb" />
+            <Button
+                Text="Register"
+                Clicked="RegisterButton_Clicked"
+                Style="{StaticResource buttonStyle}" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

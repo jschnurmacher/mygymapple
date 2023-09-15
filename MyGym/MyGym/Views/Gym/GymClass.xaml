@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.GymClass">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <StackLayout Padding="15,10,15,10">
+        <Label x:Name="scheduleTitle"
+            Text="Schedule Classes"
+            IsVisible="True"
+            Margin="-20,10,-20,0"
+            Padding="30,10,10,10"
+            HorizontalTextAlignment="Center"
+            FontSize="18"
+            FontAttributes="Bold"
+            Background="#0079bb"
+            TextColor="#fff" />
+        <ActivityIndicator x:Name="activityIndicator" 
+            Grid.Column="0"
+            Grid.Row="0"
+            Color="#0079bb"
+            HorizontalOptions="Center"
+            Margin="0,60,0,0"
+            Scale="1.5"
+            IsRunning="True"
+            IsEnabled="True"
+            IsVisible="False"/>
+        <Grid
+            x:Name="grid1"            
+            HeightRequest="80"
+            MinimumHeightRequest="80"
+            BackgroundColor="#f0f0f0"
+            Margin="-10,5,-10,5"
+            Padding="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="80" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Grid.Row="0" HeightRequest="80">
+                <Label.FormattedText>
+                    <FormattedString >
+                        <Span Text="{Binding Display}" FontSize="16" TextColor="#0079bb" FontAttributes="Bold" />
+                        <Span Text="   " />
+                        <Span Text="{Binding AgeDesc}" FontSize="15" TextColor="#0079bb" FontAttributes="Bold" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Image Grid.Column="1" Grid.Row="0" Source="{Binding Photo}" WidthRequest="80" HeightRequest="80" />
+        </Grid>
+        <Grid x:Name="grid2" Margin="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <ScrollView x:Name="scrollView" >
+                <StackLayout Margin="0,0,0,10" x:Name="stackLayout" >
+                    <Label Text="{Binding DescLong}" Margin="0,10,0,10" LineHeight="1.15" FontSize="15" FontAttributes="None"/>
+                    <CollectionView SelectionMode="None" ItemsSource="{Binding TimesListDisplay}" Margin="0,0,0,0" HeightRequest="{Binding TimesListHeight}" >
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                     <Label Grid.Column="0" Grid.Row="0">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding Value}" FontSize="16" TextColor="#0079bb" FontAttributes="Bold" />
+                                                <Span Text=" " />
+                                                <Span Text="{Binding Text}" FontSize="14" TextColor="#0079bb" FontAttributes="Bold" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <telerikPrimitives:RadExpander x:Name="TermsExpander" Margin="0,10,0,10" IsVisible="False" IsExpanded="False" >
+                        <telerikPrimitives:RadExpander.Header>
+                            <telerikPrimitives:ExpanderHeader HeightRequest="30" VerticalOptions="Center">
+                                <Label Text="Terms of Payment" FontSize="Small" FontAttributes="Bold" TextColor="#555" VerticalOptions="CenterAndExpand"></Label>
+                            </telerikPrimitives:ExpanderHeader>
+                        </telerikPrimitives:RadExpander.Header>
+                        <telerikPrimitives:RadExpander.Content>
+                            <StackLayout Margin="10">
+                                <Label x:Name="Terms" Text="dfgfffg fg fgf gf gf fg fgf f fgfgffgfgfgfgf gf f g" TextColor="#555"></Label>
+                            </StackLayout>
+                        </telerikPrimitives:RadExpander.Content>
+                    </telerikPrimitives:RadExpander>
+                    <Label x:Name="ClassCost" IsVisible="False" Text="" Style="{StaticResource gymListingSubStyle}" Margin="2,0,2,10" FontSize="14" TextColor="#555" HorizontalOptions="Center"></Label>
+                    <Label IsVisible="{Binding ProgramFull1}" Text="This program is currently full or you are not yet eligible at this time" Style="{StaticResource gymListingSubStyle}" Margin="10,0,10,0" TextColor="DarkGoldenrod" HorizontalOptions="Center" HorizontalTextAlignment="Center"></Label>
+                    <Button IsVisible="{Binding ProgramFull2}" Text="Contact us for information" Style="{StaticResource buttonStyle}" Margin="10,0,10,0"  Clicked="Contact_Clicked"></Button>
+                    <Label IsVisible="{Binding MembersOnly1}" Text="Members Only" Style="{StaticResource gymClassLabelStyle}" Margin="10,0,10,0" TextColor="DarkGoldenrod" HorizontalOptions="Center"></Label>
+                    <Button IsVisible="{Binding MembersOnly2}" Text="Book this class from your account page" Style="{StaticResource buttonStyle}" Margin="10,0,10,0" Clicked="AccountSchedule_Clicked"></Button>
+                    <Button IsVisible="{Binding MembersOnly3}" Text="Contact us for informaton" Style="{StaticResource buttonStyle}" Margin="10,0,10,0" Clicked="Contact_Clicked"></Button>
+                    <Label IsVisible="{Binding ChooseTime}" Text="Choose a time:" Style="{StaticResource gymClassLabelStyle}" Margin="10,0,10,0" TextColor="#ed0d91"></Label>
+                    <Label IsVisible="{Binding ChooseDate}" Text="Choose a date:" Style="{StaticResource gymClassLabelStyle}" Margin="10,0,10,0" TextColor="#ed0d91"></Label>
+                    <CollectionView x:Name="timeButtons" SelectionMode="None" ItemsSource="{Binding Buttons}" Margin="0,0,0,0" HeightRequest="{Binding ButtonsHeight}" HorizontalOptions="FillAndExpand">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout ItemSpacing="10" Orientation="Vertical"></LinearItemsLayout>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Button Text="{Binding Text}" Style="{StaticResource buttonScheduleStyle}" Clicked="Button_Clicked" CommandParameter="{Binding Value}"></Button>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <Label x:Name="membershipMessage" IsVisible="False" Text="" Style="{StaticResource gymListingSubStyle}" Margin="10,10,10,10" FontAttributes="Italic" FontSize="12" HorizontalTextAlignment="Center"></Label>
+                    <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Margin="0,0,0,50" Color="#fff"/>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </StackLayout>
+</ContentPage>
