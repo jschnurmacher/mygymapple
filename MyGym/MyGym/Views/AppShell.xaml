@@ -1,0 +1,144 @@
+﻿<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:MyGym"
+       xmlns:fontAwesome="clr-namespace:fontAwesome"
+       x:Class="MyGym.AppShell"
+       x:Name="MainShell"
+       Shell.BackgroundColor="#0079bb"
+       Shell.ForegroundColor="White"
+       Shell.TabBarBackgroundColor="#0079bb"
+       Shell.TabBarForegroundColor="#fff">
+    <ShellItem x:Name="accounthome" Route="accounthome" Title="Gym Home" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent x:Name="AccountHomeContent" Title="Home" ContentTemplate="{DataTemplate views:AccountHome}">
+            <ShellContent.Icon>
+                <FontImageSource FontFamily="FontAwesomeSolid" Color="#0079bb" Glyph="{x:Static fontAwesome:FontAwesomeSolid.Home}"/>
+            </ShellContent.Icon>
+        </ShellContent>
+    </ShellItem>
+    <ShellContent x:Name="GymClassesPage" Route="gymclasses" Title="Classes" ContentTemplate="{DataTemplate views:GymClasses}">
+        <ShellContent.Icon>
+            <FontImageSource FontFamily="FontAwesomeSolid" Color="#4FC3F7" Glyph="{x:Static fontAwesome:FontAwesomeSolid.CalendarWeek}"/>
+        </ShellContent.Icon>
+    </ShellContent>
+    <ShellItem x:Name="findagym" Route="findagym" Title="Find A Gym Near You" FlyoutItemIsVisible="False" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent x:Name="FindAGymContent" Title="Find a Gym Near You" ContentTemplate="{DataTemplate views:FindAGym}">
+            <ShellContent.Icon>
+                <FontImageSource FontFamily="FontAwesomeSolid" Color="#0079bb" Glyph="{x:Static fontAwesome:FontAwesomeSolid.Search}"/>
+            </ShellContent.Icon>            
+        </ShellContent>
+    </ShellItem>
+    <ShellContent x:Name="CampSelect" Route="campselect" Title="Camps" ContentTemplate="{DataTemplate views:Loading}">
+        <ShellContent.Icon>
+            <FontImageSource FontFamily="FontAwesomeSolid" Color="#ff4da6" Glyph="{x:Static fontAwesome:FontAwesomeSolid.CalendarWeek}"/>
+        </ShellContent.Icon>
+    </ShellContent>
+    <ShellContent x:Name="EventSelect" Route="eventselect" Title="Events" ContentTemplate="{DataTemplate views:Loading}">
+        <ShellContent.Icon>
+            <FontImageSource FontFamily="FontAwesomeSolid" Color="#ff4da6" Glyph="{x:Static fontAwesome:FontAwesomeSolid.CalendarDay}"/>
+        </ShellContent.Icon>
+    </ShellContent>
+    <ShellContent x:Name="PartySelect" Route="partyselect" Title="Parties" ContentTemplate="{DataTemplate views:Loading}">
+        <ShellContent.Icon>
+            <FontImageSource FontFamily="FontAwesomeSolid" Color="#0D47A1" Glyph="{x:Static fontAwesome:FontAwesomeSolid.BirthdayCake}"/>
+        </ShellContent.Icon>
+    </ShellContent>
+    <ShellItem x:Name="gymlistings" Route="gymlistings" Title="Gym Listings" FlyoutItemIsVisible="False" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent x:Name="GymListingsContent" Title="Gyms Near You" ContentTemplate="{DataTemplate views:GymListing}">
+            <ShellContent.Icon>
+                <FontImageSource FontFamily="FontAwesomeSolid" Color="#0079bb" Glyph="{x:Static fontAwesome:FontAwesomeSolid.MapMarkerAlt}"/>
+            </ShellContent.Icon>            
+        </ShellContent>
+    </ShellItem>
+    <ShellItem x:Name="gymlogin" Route="gymlogin" Title="Gym Log In" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent x:Name="GymLoginContent" Title="Log In or Register" ContentTemplate="{DataTemplate views:GymLogin}">
+            <ShellContent.Icon>
+                <FontImageSource FontFamily="FontAwesomeSolid" Color="#0079bb" Glyph="{x:Static fontAwesome:FontAwesomeSolid.SignInAlt}"/>
+            </ShellContent.Icon>
+        </ShellContent>
+    </ShellItem>
+    <ShellItem x:Name="gymloginreset" Route="gymloginreset" Title="Gym Log In Reset" FlyoutDisplayOptions="AsMultipleItems" FlyoutItemIsVisible="False">
+        <ShellContent x:Name="GymLoginResetContent" Title="Log In Reset" ContentTemplate="{DataTemplate views:GymLoginReset}">
+        </ShellContent>
+    </ShellItem>
+    <ShellItem x:Name="gymloginresetpassword" Route="gymloginresetpassword" Title="Reset Password" FlyoutDisplayOptions="AsMultipleItems" FlyoutItemIsVisible="False">
+        <ShellContent x:Name="GymLoginResetPasswordContent" Title="Reset password" ContentTemplate="{DataTemplate views:GymLoginResetPassword}">
+        </ShellContent>
+    </ShellItem>
+    <ShellContent x:Name="GymContact" Route="gymcontact" Title="Contact Us" ContentTemplate="{DataTemplate views:GymContact}">
+        <ShellContent.Icon>
+            <FontImageSource FontFamily="FontAwesomeSolid" Color="#b37700" Glyph="{x:Static fontAwesome:FontAwesomeSolid.Comment}"/>
+        </ShellContent.Icon>
+    </ShellContent>
+    <ShellContent x:Name="Settings" Route="settings" Title="Settings" ContentTemplate="{DataTemplate views:Settings}">
+        <ShellContent.Icon>
+            <FontImageSource FontFamily="FontAwesomeSolid" Color="#0079bb" Glyph="{x:Static fontAwesome:FontAwesomeSolid.List}"/>
+        </ShellContent.Icon>
+    </ShellContent>
+    <ShellContent x:Name="GymShop" Route="gymshop" Title="SHOP" ContentTemplate="{DataTemplate views:GymShop}">
+        <ShellContent.Icon>
+            <FontImageSource FontFamily="FontAwesomeSolid" Color="Blue" Glyph="{x:Static fontAwesome:FontAwesomeSolid.ShoppingCart}"/>
+        </ShellContent.Icon>
+    </ShellContent>
+    <ShellContent x:Name="GymLogoutContent" Route="gymlogout" Title="Log Out" ContentTemplate="{DataTemplate views:GymLogout}">
+        <ShellContent.Icon>
+            <FontImageSource FontFamily="FontAwesomeSolid" Color="#a6a6a6" Glyph="{x:Static fontAwesome:FontAwesomeSolid.SignOutAlt}"/>
+        </ShellContent.Icon>
+    </ShellContent>
+    <ShellContent x:Name="LoadingContent" Route="loading" Title="Loading" ContentTemplate="{DataTemplate views:Loading}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="GymContactConfirm" Route="gymcontactconfirm" Title="Contact" ContentTemplate="{DataTemplate views:GymContactConfirm}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="GymPrivacy" Route="gymprivacy" Title="Privacy" ContentTemplate="{DataTemplate views:GymPrivacy}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="GymClass" Route="gymclass" Title="Register" ContentTemplate="{DataTemplate views:GymClass}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="GymCamps" Route="gymcamps" Title="Camps" ContentTemplate="{DataTemplate views:GymCamps}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="GymRegisterContent" Route="gymregister" Title="Register" ContentTemplate="{DataTemplate views:GymRegister}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="GymRegister2Content" Route="gymregister2" Title="Register2" ContentTemplate="{DataTemplate views:GymRegister2}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="GymMultiple" Route="gymmultiple" Title="Multiple" ContentTemplate="{DataTemplate views:GymMultiple}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="AccountUpComingVisits" Route="accountupcomingvisits" Title="Upcoming Visits" ContentTemplate="{DataTemplate views:AccountVisit}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="AccountSchedule" Route="accountschedule" Title="Schedule Classes" ContentTemplate="{DataTemplate views:AccountSchedule}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="AccountScheduleChild" Route="accountschedulechild" Title="Schedule Classes" ContentTemplate="{DataTemplate views:AccountScheduleChild}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="AccountEvent" Route="accountevent" Title="Camps/Events" ContentTemplate="{DataTemplate views:AccountEvent}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="AccountParty" Route="accountparty" Title="Parties" ContentTemplate="{DataTemplate views:AccountParty}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="AccountProfile" Route="accountprofile" Title="Profile" ContentTemplate="{DataTemplate views:AccountProfile}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="AccountProfileProfile" Route="accountprofileprofile" Title="Profile" ContentTemplate="{DataTemplate views:AccountProfileProfile}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="AccountProfileMarketing" Route="accountprofilemarketing" Title="Profile" ContentTemplate="{DataTemplate views:AccountProfileMarketing}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="AccountProfileChildren" Route="accountprofilechildren" Title="Profile" ContentTemplate="{DataTemplate views:AccountProfileChildren}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="AccountProfileEdit" Route="accountprofileedit" Title="Profile" ContentTemplate="{DataTemplate views:AccountProfileEdit}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="AccountProfileEditChild" Route="accountprofileeditchild" Title="Profile" ContentTemplate="{DataTemplate views:AccountProfileEditChild}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="AccountTrans" Route="accounttrans" Title="Payments" ContentTemplate="{DataTemplate views:AccountTrans}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="AccountTransPayments" Route="accounttranspayments" Title="Payments" ContentTemplate="{DataTemplate views:AccountTransPayments}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="AccountTransBilling" Route="accounttransbilling" Title="Payments" ContentTemplate="{DataTemplate views:AccountTransBilling}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="AccountBillingEdit" Route="accountbillingedit" Title="Billing" ContentTemplate="{DataTemplate views:AccountBillingEdit}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="AccountWaiver" Route="accountwaiver" Title="Waiver" ContentTemplate="{DataTemplate views:AccountWaiver}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="AccountWaiverSign" Route="accountwaiversign" Title="Waiver" ContentTemplate="{DataTemplate views:AccountWaiverSign}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="AccountVIMA" Route="accountvima" Title="VIMA" ContentTemplate="{DataTemplate views:AccountVIMA}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="AccountVIMASign" Route="accountvimasign" Title="VIMA" ContentTemplate="{DataTemplate views:AccountVIMASign}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="AccountSocks" Route="accountsocks" Title="Socks" ContentTemplate="{DataTemplate views:AccountSocks}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="AccountSocksBilling" Route="accountsocksbilling" Title="Socks Billing" ContentTemplate="{DataTemplate views:AccountSocksBilling}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="AccountSocksBillingEdit" Route="accountsocksbillingedit" Title="Socks Billing Edit" ContentTemplate="{DataTemplate views:AccountSocksBillingEdit}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="AccountSocksConfirm" Route="accountsocksconfirm" Title="Socks Confirm" ContentTemplate="{DataTemplate views:AccountSocksConfirm}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="EnrollDetail" Route="enrolldetail" Title="Enrollment" ContentTemplate="{DataTemplate views:EnrollDetail}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="EnrollTerms" Route="enrollterms" Title="Enrollment" ContentTemplate="{DataTemplate views:EnrollTerms}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="EnrollBilling" Route="enrollbilling" Title="Enrollment" ContentTemplate="{DataTemplate views:EnrollBilling}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="EnrollSummary" Route="enrollsummary" Title="Enrollment" ContentTemplate="{DataTemplate views:EnrollSummary}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="EnrollSingle" Route="enrollsingle" Title="Enrollment" ContentTemplate="{DataTemplate views:EnrollSingle}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="EnrollGuestWaiver" Route="enrollguestwaiver" Title="Enrollment" ContentTemplate="{DataTemplate views:EnrollGuestWaiver}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="EnrollConfirm" Route="enrollconfirm" Title="Enrollment" ContentTemplate="{DataTemplate views:EnrollConfirm}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="EnrollFreeze" Route="enrollfreeze" Title="Enrollment" ContentTemplate="{DataTemplate views:EnrollFreeze}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="EnrollFreezeConfirm" Route="enrollfreezeconfirm" Title="Enrollment" ContentTemplate="{DataTemplate views:EnrollFreezeConfirm}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="EnrollSwitch" Route="enrollswitch" Title="Enrollment" ContentTemplate="{DataTemplate views:EnrollSwitch}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="EventConfirm" Route="eventconfirm" Title="Event" ContentTemplate="{DataTemplate views:EventConfirm}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="PartyPackages" Route="partypackages" Title="Party" ContentTemplate="{DataTemplate views:PartyPackages}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="PartyPackage" Route="partypackage" Title="Party" ContentTemplate="{DataTemplate views:PartyPackage}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="PartyDate" Route="partydate" Title="Party" ContentTemplate="{DataTemplate views:PartyDate}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="PartyAddOns" Route="partyaddons" Title="Party" ContentTemplate="{DataTemplate views:PartyAddOns}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="PartyAddOnsEdits" Route="partyaddonsedit" Title="Party" ContentTemplate="{DataTemplate views:PartyAddOnsEdit}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="PartyBilling" Route="partybillling" Title="Party" ContentTemplate="{DataTemplate views:PartyBilling}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="PartySummary" Route="partysummary" Title="Party" ContentTemplate="{DataTemplate views:PartySummary}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="PartyConfirm" Route="partyconfirm" Title="Party" ContentTemplate="{DataTemplate views:PartyConfirm}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="ClassCardPackages" Route="classcardpackages" Title="Class Cards" ContentTemplate="{DataTemplate views:ClassCardPackages}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="ClassCardPackage" Route="classcardpackage" Title="Class Cards" ContentTemplate="{DataTemplate views:ClassCardPackage}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="ClassCardDetail" Route="classcarddetail" Title="Class Cards" ContentTemplate="{DataTemplate views:ClassCardDetail}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="ClassCardBilling" Route="classcardbilling" Title="Class Cards" ContentTemplate="{DataTemplate views:ClassCardBilling}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="ClassCardSummary" Route="classcardsummary" Title="Class Cards" ContentTemplate="{DataTemplate views:ClassCardSummary}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="ClassCardConfirm" Route="classcardconfirm" Title="Class Cards" ContentTemplate="{DataTemplate views:ClassCardConfirm}" FlyoutItemIsVisible="False"></ShellContent>
+    <ShellContent x:Name="ErrorPage" Route="errorpage" Title="Error Page" ContentTemplate="{DataTemplate views:ErrorPage}" FlyoutItemIsVisible="False"></ShellContent>
+</Shell>

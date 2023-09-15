@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.AccountVIMA">
+   <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <StackLayout Padding="15,10,15,10">
+        <WebView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="10">
+            <WebView.Source>
+                <HtmlWebViewSource x:Name="VIMA"/>
+            </WebView.Source>
+        </WebView>
+        <Button
+            Text="Email"
+            Clicked="Email_Clicked"
+            Style="{StaticResource linkStyle}" />
+        <ActivityIndicator x:Name="activityIndicator" 
+            Color="#0079bb"
+            HorizontalOptions="Center"
+            Margin="0, 0, 0, 0"
+            IsEnabled="True"
+            IsRunning="True"
+            IsVisible="True"/>
+    </StackLayout>
+</ContentPage>

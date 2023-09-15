@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.ClassCardDetail">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="EnrollTitle"
+                Text="Class Card Details"
+                VerticalOptions="Center"
+                HorizontalTextAlignment="Start"
+                FontSize="17"
+                Margin="0, 10, 0, 0"
+                Padding="10"
+                Background="#0079bb"
+                FontAttributes="Bold"
+                TextColor="#fff" />
+            <ScrollView x:Name="scrollView" HorizontalOptions="FillAndExpand">
+                <StackLayout x:Name="stackLayout" Margin="10,0,10,10">
+                    <Label x:Name="ClassCardName" FontSize="17" FontAttributes="Bold" Padding="0,0,0,0" Margin="0,0,0,0" />
+                    <Label x:Name="Ages" FontSize="16" FontAttributes="Bold" Padding="0,0,0,0" Margin="0,0,0,0" />
+                    <Label x:Name="CreditsStr" FontSize="16" FontAttributes="Bold" Padding="0,0,0,0" Margin="0,0,0,0" />
+                    <Label x:Name="ValidDaysStr" FontSize="16" FontAttributes="Bold" Padding="0,0,0,0" Margin="0,0,0,0" />
+                    <Label x:Name="TotalStr" FontSize="16" FontAttributes="Bold" Padding="0,0,0,0" Margin="0,0,0,0" />
+                    <ActivityIndicator x:Name="activityIndicator" 
+                        Color="#0079bb"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Margin="0, 0, 0, 0"
+                        IsEnabled="True"
+                        IsRunning="True"
+                        IsVisible="True"/>
+                    <telerikPrimitives:RadExpander Margin="0,20,0,20" IsExpanded="False">
+                        <telerikPrimitives:RadExpander.Header>
+                            <telerikPrimitives:ExpanderHeader HeightRequest="30" VerticalOptions="Center">
+                                <Label Text="Release of Liability Agreement" FontSize="Small" FontAttributes="Bold" TextColor="#555" VerticalOptions="CenterAndExpand"></Label>
+                            </telerikPrimitives:ExpanderHeader>
+                        </telerikPrimitives:RadExpander.Header>
+                        <telerikPrimitives:RadExpander.Content>
+                            <StackLayout Margin="10">
+                                <Label x:Name="ReleaseOfLiability" Text="dfgfffg fg fgf gf gf fg fgf f fgfgffgfgfgfgf gf f g" TextColor="#555"></Label>
+                            </StackLayout>
+                        </telerikPrimitives:RadExpander.Content>
+                    </telerikPrimitives:RadExpander>
+                    <Grid VerticalOptions="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="28" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="24"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <telerikPrimitives:RadCheckBox Grid.Column="0" x:Name="liabilityCheckbox" />
+                        <Button Grid.Column="1" 
+                            Text="*I agree to the Release of Liability" 
+                            TextTransform="None"
+                            HorizontalOptions="Start"
+                            Padding="0"
+                            Margin="0,0,0,5"
+                            HeightRequest="12"
+                            Clicked="AgreeButton_Clicked"
+                            Style="{StaticResource linkSmallStyle}" />
+                    </Grid>
+                    <Button
+                        x:Name="continueButton"
+                        IsVisible="False"
+                        Text="Continue" 
+                        Clicked="Continue_Clicked" 
+                        Padding="0"
+                        Margin="0,10,0,30"
+                        Style="{StaticResource buttonStyle}" />
+                    <Label
+                        x:Name="InputMissing"
+                        Text="Please agree to the Release of Liability"
+                        VerticalOptions="Start"
+                        HorizontalTextAlignment="Start"
+                        IsVisible="False"
+                        FontSize="17"
+                        Margin="0,-5,0,20"
+                        FontAttributes="Bold"
+                        TextColor="IndianRed" />
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

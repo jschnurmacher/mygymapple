@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:fontAwesome="clr-namespace:fontAwesome"
+    x:Class="MyGym.PartyBackToHome"
+    VerticalOptions="Start"
+    Padding="0,0,0,5"
+    MinimumHeightRequest="36">
+    <Grid.GestureRecognizers>
+        <TapGestureRecognizer Tapped="BackToPartyHome_Tapped" />
+    </Grid.GestureRecognizers>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="20"/>
+        <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+    <Image Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,0,0" HeightRequest="28">
+        <Image.Source>
+            <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.ArrowCircleLeft}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+        </Image.Source>
+    </Image>
+    <Label Grid.Column="1" Text="Back to Party Home" TextColor="#0079bb" Margin="0,0,0,0" FontSize="16" FontAttributes="Bold" VerticalOptions="Center" />
+</Grid>
+

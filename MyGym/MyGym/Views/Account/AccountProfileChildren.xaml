@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:fontAwesome="clr-namespace:fontAwesome"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.AccountProfileChildren">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <StackLayout Padding="15,10,15,10">
+        <control:AccountBackToProfile x:Name="backtoAccountProfile"/>
+        <Grid BackgroundColor="#0079bb" Padding="10" Margin="-20,0,-20,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="24" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Image HorizontalOptions="Start" Grid.Column="0">
+                <Image.Source>
+                    <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.Child}" FontFamily="FontAwesomeSolid" Color="#fff"></FontImageSource>
+                </Image.Source>
+            </Image>
+            <Label Grid.Column="1" FontSize="18" VerticalOptions="Center" HeightRequest="34">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text=" Children" TextColor="#fff" FontSize="18" FontAttributes="Bold" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </Grid>
+        <Grid
+            VerticalOptions="Center"
+            Padding="0,10,0,10">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="AddChild_Tapped"></TapGestureRecognizer>
+            </Grid.GestureRecognizers>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="28" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Image HorizontalOptions="Start" Grid.Column="0" Grid.Row="0" VerticalOptions="Center">
+                <Image.Source>
+                    <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.PlusCircle}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                </Image.Source>
+            </Image>
+            <Label Grid.Column="1" Grid.Row="0" Text="Add Child" TextColor="#0079bb" FontSize="18" FontAttributes="Bold" VerticalOptions="Center" HeightRequest="34" />
+        </Grid>
+        <CollectionView
+            x:Name="listView"            
+            VerticalScrollBarVisibility="Never"
+            SelectionMode="None"
+            Margin="0,0,0,2">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="4" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame CornerRadius="5" BorderColor="#e0e0e0" HasShadow="False">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Child_Tapped" CommandParameter="{Binding ChildId}" />
+                        </Frame.GestureRecognizers>
+                        <StackLayout Margin="0,0,0,0">
+                            <Grid BackgroundColor="White" VerticalOptions="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="24" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="16" />
+                                </Grid.ColumnDefinitions>
+                                <Image HorizontalOptions="Start" Grid.Column="0" BackgroundColor="White">
+                                    <Image.Source>
+                                        <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.Edit}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                                    </Image.Source>
+                                </Image>
+                                <Label Grid.Column="1" FontSize="18" BackgroundColor="White" VerticalOptions="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding First}" TextColor="#0079bb" FontSize="18" FontAttributes="Bold" />
+                                            <Span Text=" - " />
+                                            <Span Text="{Binding AgeStr}" TextColor="#0079bb" FontSize="15" FontAttributes="Bold" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Image HorizontalOptions="Start" Grid.Column="2">
+                                    <Image.Source>
+                                        <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.CaretRight}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                                    </Image.Source>
+                                </Image>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

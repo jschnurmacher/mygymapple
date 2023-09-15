@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:fontAwesome="clr-namespace:fontAwesome"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.EnrollFreezeConfirm">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <StackLayout>
+        <Label x:Name="EnrollTitle"
+            Text="Enrollment Freeze Confirmation"
+            VerticalOptions="Center"
+            HorizontalTextAlignment="Start"
+            FontSize="17"
+            Margin="0, 10, 0, 0"
+            Padding="10"
+            Background="#0079bb"
+            FontAttributes="Bold"
+            TextColor="#fff" />
+        <ScrollView x:Name="scrollView" HorizontalOptions="FillAndExpand">
+            <StackLayout x:Name="stackLayout" Margin="10,10,10,100">
+                <Label
+                    x:Name="ErrorMessage"
+                    VerticalOptions="Start"
+                    HorizontalTextAlignment="Start"
+                    IsVisible="False"
+                    FontSize="17"
+                    Margin="0,0,0,20"
+                    FontAttributes="Bold"
+                    TextColor="IndianRed" />
+                <Label
+                    x:Name="SuccessMessage"
+                    VerticalOptions="Start"
+                    HorizontalTextAlignment="Start"
+                    IsVisible="False"
+                    FontSize="17"
+                    Margin="0,0,0,20"
+                    FontAttributes="Bold"
+                    TextColor="DarkGreen" />
+                <Grid x:Name="ErrorMessageLink" IsVisible="False" VerticalOptions="Start" Grid.Row="1" Margin="10">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="EditPayment_Tapped" />
+                    </Grid.GestureRecognizers>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="24" />
+                        <RowDefinition Height="68" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="14" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image HorizontalOptions="Start" Grid.Column="0" Grid.Row="0">
+                        <Image.Source>
+                            <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.ArrowCircleLeft}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                        </Image.Source>
+                    </Image>
+                    <Label Grid.Column="1" Grid.Row="0" Text="Edit Payment Information" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" />
+                </Grid>
+                <Grid Grid.Row="1" Margin="0,10,0,10">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Home_Tapped" />
+                    </Grid.GestureRecognizers>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="24" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="14" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image HorizontalOptions="Start" Grid.Column="0" Grid.Row="0">
+                        <Image.Source>
+                            <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.ArrowCircleLeft}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                        </Image.Source>
+                    </Image>
+                    <Label Grid.Column="1" Grid.Row="0" Text="Account Home" TextColor="#0079bb" Margin="0,2,0,0" FontSize="17" FontAttributes="Bold" />
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:control="clr-namespace:MyGym"
+    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+    x:Class="MyGym.GymCamps">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <StackLayout Padding="15,10,15,10">
+        <control:AccountBackToHome></control:AccountBackToHome>
+        <Label x:Name="campTitle"
+            VerticalOptions="Center"
+            HorizontalTextAlignment="Start"
+            IsVisible="true"
+            FontSize="17"
+            Margin="-20,0,-20,0"
+            Padding="30,10,10,10"
+            Background="#0079bb"
+            FontAttributes="Bold"
+            TextColor="#fff" />
+        <CollectionView x:Name="listView"
+            SelectionMode="None"
+            Margin="0,0,0,0">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Label x:Name="Display" Text="{Binding Display}" FontSize="19" FontAttributes="Bold" TextColor="#0079bb" />
+                        <Label x:Name="AgeDesc" Text="{Binding AgeDesc}" FontSize="15" Margin="0,-5,0,0" />
+                        <Label x:Name="DescLong" Text="{Binding DescLong}" FontSize="14" FontAttributes="None" />
+                        <Label x:Name="Bullets" Text="{Binding Bullets}" FontSize="14" FontAttributes="None" />
+                        <Label x:Name="DateStr" Text="{Binding DateStr}" FontSize="16" FontAttributes="None" Margin="0,5,0,10" />
+                        <Label x:Name="EventDiscountsStr" Text="{Binding EventDiscountsStr}" FontSize="12" FontAttributes="None" Margin="0" />
+                        <telerikPrimitives:RadExpander Margin="0,10,2,10" IsExpanded="False">
+                            <telerikPrimitives:RadExpander.Header>
+                                <telerikPrimitives:ExpanderHeader HeightRequest="30" VerticalOptions="Center">
+                                    <Label Text="List of Dates/Times" FontSize="Small" FontAttributes="Bold" TextColor="#555" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"></Label>
+                                </telerikPrimitives:ExpanderHeader>
+                            </telerikPrimitives:RadExpander.Header>
+                            <telerikPrimitives:RadExpander.Content>
+                                <StackLayout Margin="10">
+                                    <Label Text="{Binding ListOfDates}" TextColor="#777" FontFamily="Courier"></Label>
+                                </StackLayout>
+                            </telerikPrimitives:RadExpander.Content>
+                        </telerikPrimitives:RadExpander>
+                        <telerikInput:RadListPicker ItemsSource="{Binding EventDiscounts}"
+                            Placeholder="Select a Package"
+                            HeightRequest="50"
+                            IsVisible="{Binding ClassTemplateId1}"
+                            DisplayMemberPath="DisplayList">
+                        </telerikInput:RadListPicker>
+                        <Button
+                            Text="{Binding Book}"
+                            IsVisible="{Binding BookVisible}"
+                            Clicked="BookCamp_Clicked"
+                            Margin="0,0,0,20"
+                            CommandParameter="{Binding Display}"
+                            Style="{StaticResource buttonStyle}" />
+                        <Label IsVisible="{Binding BookingNotAvailable}" Text="This camp/event requires children be members or enrolled in class"></Label>
+                        <Label IsVisible="{Binding CampEnrollmentNotAvailable}" Text="Online booking of camps is not enabled"></Label>
+                        <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="2" Margin="-20,10,-20,10" Color="#333"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

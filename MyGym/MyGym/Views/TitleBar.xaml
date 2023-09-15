@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:fontAwesome="clr-namespace:fontAwesome"
+    x:Class="MyGym.TitleBar"
+    x:Name="TitleBarView"
+    BackgroundColor="Color.Transparent"
+    Margin="0"
+    Padding="0">
+        <Grid HorizontalOptions="Start" HeightRequest="44" Background="Color.Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="40" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="44" />
+            </Grid.RowDefinitions>
+            <Label x:Name="ShellTitle" Grid.Column="0" Text="Welcome to My Gym!" VerticalOptions="Center" HorizontalOptions="Start" FontSize="15" FontAttributes="Bold" TextColor="White" Background="Color.Transparent" />
+            <Image HorizontalOptions="End" Grid.Column="1" BackgroundColor="Color.Transparent">
+                <Image.Source>
+                    <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.Home}" Size="Medium" FontFamily="FontAwesomeSolid" Color="#fff"></FontImageSource>
+                </Image.Source>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Home_Tapped" />
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
+</ContentView>

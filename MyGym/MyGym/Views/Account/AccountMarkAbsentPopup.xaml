@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<popups:PopupPage xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    x:Class="MyGym.AccountMarkAbsentPopup"
+    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+    CloseWhenBackgroundIsClicked="False"
+    xmlns:popups="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+    <StackLayout 
+        x:Name="MainLayout" 
+        Margin="5,10,5,10"
+        HorizontalOptions="Center" 
+        VerticalOptions="Center" 
+        Padding="10" 
+        BackgroundColor="WhiteSmoke">
+        <Label Text="Select a Date to Mark Absent:"
+            VerticalOptions="Start"
+            Margin="10,0,10,0"
+            HorizontalTextAlignment="Center"
+            IsVisible="true"
+            FontSize="17"
+            FontAttributes="Bold"
+            TextColor="#0079bb" />
+        <telerikInput:RadListPicker x:Name="Dates" 
+            SelectionChanged="Dates_SelectionChanged"
+            Margin="10,0,10,0"
+            Placeholder="Select a Date"
+            DisplayMemberPath="Text">
+        </telerikInput:RadListPicker>
+        <Label x:Name="DatesNotAvailable"
+            Text="You have reached the limit and can not mark anymore dates as absent"
+            VerticalOptions="Start"
+            Margin="10"
+            HorizontalTextAlignment="Center"
+            IsVisible="False"
+            FontSize="17"
+            FontAttributes="Bold"
+            TextColor="IndianRed" />
+        <Button 
+            Text="Cancel" 
+            Clicked="Cancel_Clicked" />
+    </StackLayout>
+</popups:PopupPage>

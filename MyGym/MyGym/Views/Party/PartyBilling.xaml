@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:fontAwesome="clr-namespace:fontAwesome"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.PartyBilling">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <StackLayout Padding="15,10,15,10">
+        <Label x:Name="EnrollTitle"
+            Text="Billing Information"
+            VerticalOptions="Center"
+            HorizontalTextAlignment="Start"
+            FontSize="17"
+            Margin="-20,10,-20,10"
+            Padding="30,10,10,10"
+            Background="#0079bb"
+            FontAttributes="Bold"
+            TextColor="#fff" />
+        <ScrollView x:Name="scrollView">
+            <StackLayout>
+                <Grid Margin="0,7,0,7" VerticalOptions="Center">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="AddBilling_Tapped" />
+                    </Grid.GestureRecognizers>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="14" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" VerticalOptions="Center">
+                        <Image.Source>
+                            <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.PlusCircle}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                        </Image.Source>
+                    </Image>
+                    <Label Grid.Column="1" Grid.Row="0" HorizontalOptions="Start" VerticalOptions="Center" Text="Add Billing" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" />
+                </Grid>
+                <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="2" Color="#0079bb" Margin="0,0,0,10"/>
+                <CollectionView x:Name="listView"
+                    SelectionMode="None"
+                    VerticalOptions="Start"
+                    VerticalScrollBarVisibility="Never">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Margin="10">
+                                <Grid>
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Billing_Tapped" />
+                                    </Grid.GestureRecognizers>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="24"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <telerikPrimitives:RadCheckBox IsChecked="{Binding Checked}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" x:Name="billingCheckbox" IsCheckedChanged="billingCheckbox_IsCheckedChanged">
+                                    </telerikPrimitives:RadCheckBox>
+                                    <Label Grid.Column="1" Grid.Row="0" Text="{Binding BillingName}" FontSize="14" />
+                                    <Label Grid.Column="1" Grid.Row="1" Text="{Binding BillingAddress}" FontSize="14" />
+                                    <Label Grid.Column="1" Grid.Row="2" Text="{Binding CardDesc}" FontSize="14" />
+                                </Grid>
+                                <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#0079bb" Margin="0,5,0,0"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Button
+                    Text="Continue" 
+                    Clicked="Continue_Clicked" 
+                    Style="{StaticResource buttonStyle}" />
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

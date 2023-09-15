@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.ClassCardSummary">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="EnrollTitle"
+                Text="Class Card Summary"
+                VerticalOptions="Center"
+                HorizontalTextAlignment="Start"
+                FontSize="17"
+                Margin="0, 10, 0, 0"
+                Padding="10"
+                Background="#0079bb"
+                FontAttributes="Bold"
+                TextColor="#fff" />
+            <ScrollView HorizontalOptions="FillAndExpand">
+                <StackLayout Margin="10,10,10,30" Padding="0,0,0,30">
+                    <Label x:Name="ClassCardName" FontSize="17" FontAttributes="Bold" Padding="0,0,0,0" Margin="0,0,0,0" />
+                    <Label x:Name="Ages" FontSize="16" FontAttributes="Bold" Padding="0,0,0,0" Margin="0,0,0,0" />
+                    <Label x:Name="CreditsStr" FontSize="16" FontAttributes="Bold" Padding="0,0,0,0" Margin="0,0,0,0" />
+                    <Label x:Name="ValidDaysStr" FontSize="16" FontAttributes="Bold" Padding="0,0,0,0" Margin="0,0,0,0" />
+                    <Label x:Name="TotalStr" FontSize="16" FontAttributes="Bold" Padding="0,0,0,0" Margin="0,0,0,0" />
+                    <ActivityIndicator x:Name="activityIndicator" 
+                        Color="#0079bb"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Margin="0, 0, 0, 0"
+                        IsEnabled="True"
+                        IsRunning="True"
+                        IsVisible="False"/>
+                    <telerikPrimitives:RadExpander Margin="0,10,0,10">
+                        <telerikPrimitives:RadExpander.Header>
+                            <telerikPrimitives:ExpanderHeader HeightRequest="30" VerticalOptions="Center">
+                                <Label Text="Terms of Payment" FontSize="Small" FontAttributes="Bold" TextColor="#555" VerticalOptions="CenterAndExpand"></Label>
+                            </telerikPrimitives:ExpanderHeader>
+                        </telerikPrimitives:RadExpander.Header>
+                        <telerikPrimitives:RadExpander.Content>
+                            <StackLayout Margin="10">
+                                <Label x:Name="Terms" Text="dfgfffg fg fgf gf gf fg fgf f fgfgffgfgfgfgf gf f g" TextColor="#555"></Label>
+                            </StackLayout>
+                        </telerikPrimitives:RadExpander.Content>
+                    </telerikPrimitives:RadExpander>
+                    <Grid HorizontalOptions="FillAndExpand" Margin="0,0,0,10" x:Name="PromoCodeContainer">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="46" />
+                        </Grid.RowDefinitions>
+                        <telerikInput:RadEntry x:Name="PromoCode"
+                            Grid.Column="0" Grid.Row="0" 
+                            WatermarkText="Have a Promo Code?" 
+                            HeightRequest="48"
+                            MaxLength="16" />
+                        <Button 
+                            Grid.Column="1" Grid.Row="0"
+                            Text="Apply" 
+                            Clicked="Promo_Clicked" 
+                            Margin="0,0,0,0"
+                            Padding="0,0,0,0"
+                            WidthRequest="100"
+                            FontSize="13"
+                            CornerRadius="5"
+                            Style="{StaticResource buttonStyle}" />
+                    </Grid>
+                    <Label x:Name="PromoCodeInvalid" IsVisible="False" Text="Promo code is invalid" FontSize="Small" FontAttributes="Bold" TextColor="IndianRed" Padding="0,0,0,0" Margin="0,10,0,10"></Label>
+                    <Label x:Name="PromoCodeAccepted" IsVisible="False" FontSize="Small" FontAttributes="Bold" TextColor="DarkGreen" Padding="0,0,0,0" Margin="0,10,0,10"></Label>
+                    <Grid x:Name="GiftCodeContainer"
+                        
+                        HorizontalOptions="FillAndExpand"
+                        Margin="0,0,0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="46" />
+                        </Grid.RowDefinitions>
+                        <telerikInput:RadEntry x:Name="GiftCode"
+                            Grid.Column="0"
+                            Grid.Row="0" 
+                            WatermarkText="Have a Gift Code?" 
+                            MaxLength="37" />
+                        <Button x:Name="giftButton"
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            Text="Apply" 
+                            Clicked="Gift_Clicked" 
+                            Margin="0,0,0,0"
+                            Padding="0,0,0,0"
+                            WidthRequest="100"
+                            FontSize="13"
+                            CornerRadius="5"
+                            Style="{StaticResource buttonStyle}"/>
+                        <ActivityIndicator x:Name="activityIndicatorGift" 
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            WidthRequest="100"
+                            Color="#0079bb"
+                            HorizontalOptions="Center"
+                            IsEnabled="True"
+                            IsRunning="True"
+                            IsVisible="False" />
+                    </Grid>
+                    <Label x:Name="CreditAvailable" FontSize="15" FontAttributes="Bold" Margin="0,0,0,0" />
+                    <Label x:Name="CreditApplied" FontSize="15" FontAttributes="Bold" Margin="0,0,0,0" />
+                    <Grid x:Name="CreditContainer"
+                        
+                        HorizontalOptions="FillAndExpand"
+                        Margin="0,0,0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <telerikInput:RadEntry x:Name="CreditApply"
+                            Grid.Column="0"
+                            Grid.Row="0" 
+                            WatermarkText="Credit to Apply" 
+                            MaxLength="6" />
+                        <Button x:Name="creditButton"
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            Text="Apply" 
+                            Clicked="Credit_Clicked" 
+                            Margin="0,0,0,0"
+                            Padding="0,0,0,0"
+                            WidthRequest="100"
+                            FontSize="13"
+                            CornerRadius="5"
+                            Style="{StaticResource buttonStyle}"/>
+                        <ActivityIndicator x:Name="activityIndicatorCredit" 
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            WidthRequest="100"
+                            Color="#0079bb"
+                            HorizontalOptions="Center"
+                            IsVisible="False" />
+                    </Grid>
+                    <Label Text="*Notes : Include special needs and allergies or other relevant information. Leave blank if not applicable." FontSize="14" Padding="0,0,0,0" Margin="0,-10,0,0" />
+                    <Editor x:Name="Notes" AutoSize="TextChanges" MaxLength="256" Placeholder="Notes" HeightRequest="72" />
+                    <Button x:Name="ClassCardButton"
+                        Text="Purchase Class Card" 
+                        Clicked="Continue_Clicked" 
+                        Padding="0"
+                        Margin="0,5,0,5"
+                        Style="{StaticResource buttonStyle}" />
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

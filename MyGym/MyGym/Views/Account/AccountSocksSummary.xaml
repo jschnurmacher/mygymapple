@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.AccountSocksSummary">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+   <ScrollView x:Name="scrollView" HorizontalOptions="FillAndExpand">
+        <StackLayout Padding="15,10,15,10">
+            <Label
+                Text="Purchase My Gym Socks"
+                VerticalOptions="Center"
+                HorizontalTextAlignment="Start"
+                FontSize="17"
+                Margin="-20,10,-20,0"
+                Padding="30,10,10,10"
+                Background="#0079bb"
+                FontAttributes="Bold"
+                TextColor="#fff" />
+                <StackLayout x:Name="stackLayout" Padding="10,10,10,100">
+                    <Label x:Name="SocksText" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontSize="15" FontAttributes="Bold" Margin="0,0,0,10" />
+                    <CollectionView
+                        x:Name="listView"
+                        SelectionMode="None"
+                        Margin="0"
+                        VerticalScrollBarVisibility="Never">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Margin="0" Padding="0">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Label Text="{Binding SocksText}" Grid.Column="0" Grid.Row="0" FontSize="12" FontAttributes="Bold" Margin="0,0,0,0" />
+                                    </Grid>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <Label x:Name="CostSummary" Text="" FontSize="15" Padding="0,0,0,0" Margin="0,0,0,0" />
+                    <Button
+                        x:Name="purchaseSocksButton"
+                        Text="Purchase My Gym Socks" 
+                        Clicked="Continue_Clicked" 
+                        Padding="0"
+                        Margin="0,5,0,5"
+                        Style="{StaticResource buttonStyle}" />
+                </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

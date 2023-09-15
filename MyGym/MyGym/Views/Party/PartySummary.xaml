@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:control="clr-namespace:MyGym"
+    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+    x:Class="MyGym.PartySummary">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <ContentPage.Content>
+        <ScrollView Margin="0,0,0,10">
+            <StackLayout Padding="15,10,15,10">
+                <Label
+                    Text="Party Summary"
+                    VerticalOptions="Center"
+                    HorizontalTextAlignment="Start"
+                    FontSize="17"
+                    Margin="-20,0,-20,10"
+                    Padding="30,10,10,10"
+                    Background="#0079bb"
+                    FontAttributes="Bold"
+                    TextColor="#fff" />
+                <Label x:Name="PartyPackage" FontSize="15" FontAttributes="Bold" Margin="0,0,0,0" />
+                <Label x:Name="PartyTime" FontSize="15" FontAttributes="Bold" Margin="0,0,0,0" />
+                <Label x:Name="PartyChild" FontSize="15" FontAttributes="Bold" Margin="0,0,0,0" />
+                <Label x:Name="PartyUpgrades" FontSize="15" FontAttributes="Bold" Margin="0,0,0,0" />
+                <Label x:Name="PartyDeposit" FontSize="15" FontAttributes="Bold" Margin="0,0,0,0" />
+                <Grid
+                    x:Name="PromoCodeContainer"                    
+                    HorizontalOptions="FillAndExpand"
+                    Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="46" />
+                    </Grid.RowDefinitions>
+                    <telerikInput:RadEntry x:Name="PromoCode"
+                        Grid.Column="0"
+                        Grid.Row="0" 
+                        WatermarkText="Have a Promo Code?" 
+                        MaxLength="16" />
+                    <Button x:Name="promoButton"
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        Text="Apply" 
+                        Clicked="Promo_Clicked" 
+                        Margin="0,0,0,0"
+                        Padding="0,0,0,0"
+                        WidthRequest="100"
+                        FontSize="13"
+                        CornerRadius="5"
+                        Style="{StaticResource buttonStyle}"/>
+                    <ActivityIndicator x:Name="activityIndicator" 
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        WidthRequest="100"
+                        Color="#0079bb"
+                        HorizontalOptions="Center"
+                        IsEnabled="True"
+                        IsRunning="True"
+                        IsVisible="False" />
+                </Grid>
+                <Label x:Name="PromoCodeResult" IsVisible="False" FontSize="15" FontAttributes="Bold" TextColor="DarkGreen" Padding="0,0,0,0" Margin="0,0,0,10"></Label>
+                <Grid
+                    x:Name="GiftCodeContainer"                    
+                    HorizontalOptions="FillAndExpand"
+                    Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="46" />
+                    </Grid.RowDefinitions>
+                    <telerikInput:RadEntry x:Name="GiftCode"
+                        Grid.Column="0"
+                        Grid.Row="0" 
+                        WatermarkText="Have a Gift Code?" 
+                        MaxLength="37" />
+                    <Button x:Name="giftButton"
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        Text="Apply" 
+                        Clicked="Gift_Clicked" 
+                        Margin="0,0,0,0"
+                        Padding="0,0,0,0"
+                        WidthRequest="100"
+                        FontSize="13"
+                        CornerRadius="5"
+                        Style="{StaticResource buttonStyle}"/>
+                    <ActivityIndicator x:Name="activityIndicatorGift" 
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        WidthRequest="100"
+                        Color="#0079bb"
+                        HorizontalOptions="Center"
+                        IsEnabled="True"
+                        IsRunning="True"
+                        IsVisible="False" />
+                </Grid>
+                <Label x:Name="GiftCodeResult" IsVisible="False" FontSize="15" FontAttributes="Bold" TextColor="DarkGreen" Padding="0,0,0,0" Margin="0,0,0,10"></Label>
+                <Label x:Name="CreditAvailable" FontSize="15" FontAttributes="Bold" Margin="0,0,0,0" />
+                <Label x:Name="CreditApplied" FontSize="15" FontAttributes="Bold" Margin="0,0,0,0" />
+                <Grid
+                    x:Name="CreditContainer"                    
+                    HorizontalOptions="FillAndExpand"
+                    Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="46" />
+                    </Grid.RowDefinitions>
+                    <telerikInput:RadEntry x:Name="CreditApply"
+                        Grid.Column="0"
+                        Grid.Row="0" 
+                        WatermarkText="Credit to Apply" 
+                        MaxLength="3" />
+                    <Button x:Name="creditButton"
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        Text="Apply" 
+                        Clicked="Credit_Clicked" 
+                        Margin="0,0,0,0"
+                        Padding="0,0,0,0"
+                        WidthRequest="100"
+                        FontSize="13"
+                        CornerRadius="5"
+                        Style="{StaticResource buttonStyle}"/>
+                    <ActivityIndicator x:Name="activityIndicatorCredit" 
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        WidthRequest="100"
+                        Color="#0079bb"
+                        HorizontalOptions="Center"
+                        IsEnabled="True"
+                        IsRunning="True"
+                        IsVisible="False" />
+                </Grid>
+                <Button x:Name="continueButton"
+                    Text="Book Your Party" 
+                    Clicked="continueButton_Clicked" 
+                    Padding="0"
+                    Margin="0,5,0,5"
+                    Style="{StaticResource buttonStyle}" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

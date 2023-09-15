@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls" 
+    xmlns:datacontrols="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.GymClasses">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <StackLayout Padding="15,10,15,10">
+        <Label x:Name="scheduleTitle"
+            Text="Schedule Classes"
+            IsVisible="True"
+            VerticalOptions="Center"
+            Margin="-20,10,-20,0"
+            Padding="30,10,10,10"
+            Background="#0079bb"
+            FontAttributes="Bold"
+            TextColor="#fff" />
+        <ActivityIndicator x:Name="activityIndicator" 
+            Grid.Column="0"
+            Grid.Row="0"
+            Color="#0079bb"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Margin="0,60,0,0"
+            Scale="1.5"
+            IsRunning="True"
+            IsEnabled="True"
+            IsVisible="False"/>
+        <Label x:Name="selectProgram"
+            Text="Select a Program"
+            IsVisible="False"
+            VerticalOptions="Center"
+            Margin="0,0,0,0"
+            HorizontalTextAlignment="Center"
+            FontSize="15"
+            FontAttributes="Bold"
+            TextColor="#ed0d91" />
+        <Label x:Name="noClasses"
+            Text="We are sorry but no classes were found for your child's age or all classes are currently full"
+            IsVisible="False"
+            VerticalOptions="Center"
+            Margin="0,0,0,0"
+            HorizontalTextAlignment="Center"
+            FontSize="15"
+            FontAttributes="Bold"
+            TextColor="#ed0d91" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <datacontrols:RadListView
+                x:Name="listView" 
+                SelectionMode="Single"                
+                HeightRequest="2000"
+                HorizontalOptions="FillAndExpand"
+                Margin="-10,0,-10,0">
+                <datacontrols:RadListView.ItemTemplate>
+                    <DataTemplate>
+                        <telerikListView:ListViewTemplateCell>
+                            <telerikListView:ListViewTemplateCell.View>
+                                <StackLayout>
+                                    <Grid VerticalOptions="Start" HeightRequest="70" BackgroundColor="#f0f0f0" Margin="0,3,0,3" Padding="5">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="Class_Tapped" CommandParameter="{Binding ClassTemplateId}" />
+                                        </Grid.GestureRecognizers>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="24" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="80" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0" Grid.Row="0">
+                                            <Label.FormattedText>
+                                                <FormattedString >
+                                                    <Span Text="{Binding Display}" FontSize="16" TextColor="#0079bb" FontAttributes="Bold" />
+                                                    <Span Text="   " />
+                                                    <Span Text="{Binding AgeDesc}" FontSize="15" TextColor="#0079bb" FontAttributes="Bold" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label Grid.Column="0" Grid.Row="1" Text="{Binding DescShort}" FontSize="15" TextColor="#0079bb" FontAttributes="Bold" Margin="0,-5,0,0" Padding="2" LineHeight="1.1"  />
+                                        <Image Grid.Column="1" Grid.RowSpan="2" Source="{Binding Photo}" WidthRequest="70" HeightRequest="70" />
+                                    </Grid>
+                                </StackLayout>
+                            </telerikListView:ListViewTemplateCell.View>
+                        </telerikListView:ListViewTemplateCell>
+                    </DataTemplate>
+                </datacontrols:RadListView.ItemTemplate>
+            </datacontrols:RadListView>
+        </Grid>
+    </StackLayout>
+</ContentPage>

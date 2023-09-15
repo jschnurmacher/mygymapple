@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+    mc:Ignorable="d"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.FindAGym">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <ScrollView >
+        <StackLayout x:Name="MainLayout" 
+            Margin="0">
+            <Image 
+                Source="main122.webp"
+                Margin="0,0,0,0" />
+            <Image 
+                Source="logo.png" 
+                Margin="10,0,10,0"
+                HeightRequest="80" 
+                WidthRequest="80"  />
+            <Label Text="Enter US/Canada Postal Code"
+                VerticalOptions="Start"
+                Margin="10,0,10,0"
+                HorizontalTextAlignment="Center"
+                IsVisible="true"
+                FontSize="17"
+                FontAttributes="Bold"
+                TextColor="#0079bb" />
+            <telerikInput:RadEntry x:Name="ZipCodeEntry" 
+                WatermarkText="Enter US/Canada Postal Code" 
+                Margin="10,0,10,0"
+                HeightRequest="50"
+                MaxLength="7" />
+            <Button 
+                Text="Search" 
+                Clicked="SearchZip_Clicked"
+                Margin="10,0,10,0"
+                Style="{StaticResource buttonStyle}" />
+            <BoxView
+                HorizontalOptions="FillAndExpand"
+                Margin="15,0,15,0"
+                WidthRequest="1"
+                HeightRequest="2"
+                Color="#0079bb"/>
+            <Label Text="OR"
+                VerticalOptions="Start"
+                Margin="10,0,10,0"
+                HorizontalTextAlignment="Center"
+                FontSize="17"
+                FontAttributes="Bold"
+                TextColor="#0079bb" />
+            <Label Text="Select a country to find a My Gym"
+                VerticalOptions="Start"
+                Margin="10,0,10,0"
+                HorizontalTextAlignment="Center"
+                IsVisible="true"
+                FontSize="17"
+                FontAttributes="Bold"
+                TextColor="#0079bb" />
+            <telerikInput:RadListPicker x:Name="Countries" 
+                SelectionChanged="Countries_SelectionChanged"
+                Margin="10,0,40,0"
+                HeightRequest="48"
+                Placeholder="Select a Country"
+                DisplayMemberPath="Text">
+            </telerikInput:RadListPicker>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

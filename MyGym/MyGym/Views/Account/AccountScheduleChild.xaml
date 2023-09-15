@@ -1,0 +1,499 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:control="clr-namespace:MyGym"
+    xmlns:fontAwesome="clr-namespace:fontAwesome"
+    x:Class="MyGym.AccountScheduleChild">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <ScrollView>
+        <StackLayout Padding="8,10,8,10">
+            <Grid
+                Padding="10,0,0,5"
+                MinimumHeightRequest="32">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BackToAccountSchedule_Tapped" />
+                </Grid.GestureRecognizers>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center">
+                    <Image.Source>
+                        <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.ArrowCircleLeft}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                    </Image.Source>
+                </Image>
+                <Label Grid.Column="1" Text="Back to Children" TextColor="#0079bb" FontSize="15" FontAttributes="Bold" VerticalOptions="Center" />
+            </Grid>
+            <Label x:Name="ActionsStr"
+                HorizontalTextAlignment="Start"
+                IsVisible="true"
+                FontSize="16"
+                Margin="-20,0,-20,10"
+                Padding="30,10,10,10"
+                Background="#0079bb"
+                FontAttributes="Bold"
+                TextColor="#fff" />
+            <Grid x:Name="ScheduleUnlimited">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ScheduleUnlimited_Tapped" />
+                </Grid.GestureRecognizers>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="18" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image HorizontalOptions="Start" Grid.Column="0" Margin="0,-2,0,0">
+                    <Image.Source>
+                        <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.PlusCircle}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                    </Image.Source>
+                </Image>
+                <Label Grid.Column="1" x:Name="ScheduleUnlimitedText" Text="Schedule Unlimited" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" Margin="0,0,0,0" />
+            </Grid>
+            <Grid x:Name="ScheduleMakeup">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ScheduleMakeup_Tapped" />
+                </Grid.GestureRecognizers>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image HorizontalOptions="Start" Grid.Column="0" Margin="0,-2,0,0">
+                    <Image.Source>
+                        <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.PlusCircle}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                    </Image.Source>
+                </Image>
+                <Label Grid.Column="1" Text="Schedule Makeup" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" Margin="0,0,0,0" />
+            </Grid>
+            <Grid x:Name="ScheduleDropIn">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ScheduleDropIn_Tapped" />
+                </Grid.GestureRecognizers>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image HorizontalOptions="Start" Grid.Column="0" Margin="0,-2,0,0">
+                    <Image.Source>
+                        <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.PlusCircle}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                    </Image.Source>
+                </Image>
+                <Label Grid.Column="1" x:Name="ScheduleDropInText" Text="Schedule Drop-In" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" Margin="0,0,0,0" />
+            </Grid>
+            <Grid x:Name="ScheduleClassCard">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ScheduleClassCard_Tapped" />
+                </Grid.GestureRecognizers>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image HorizontalOptions="Start" Grid.Column="0" Margin="0,-2,0,0">
+                    <Image.Source>
+                        <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.PlusCircle}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                    </Image.Source>
+                </Image>
+                <Label Grid.Column="1" Text="Schedule Class Card" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" Margin="0,0,0,0" />
+            </Grid>
+            <Grid x:Name="ScheduleGuest">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ScheduleGuest_Tapped" />
+                </Grid.GestureRecognizers>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image HorizontalOptions="Start" Grid.Column="0" Margin="0,0,0,0">
+                    <Image.Source>
+                        <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.PlusCircle}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                    </Image.Source>
+                </Image>
+                <Label Grid.Column="1" Text="Schedule Guest Class" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" Margin="0,0,0,0" />
+            </Grid>
+            <Grid x:Name="ScheduleTrial">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ScheduleTrial_Tapped" />
+                </Grid.GestureRecognizers>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image HorizontalOptions="Start" Grid.Column="0" Margin="0,0,0,0">
+                    <Image.Source>
+                        <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.PlusCircle}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                    </Image.Source>
+                </Image>
+                <Label Grid.Column="1" Text="Schedule Trial" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" Margin="0,0,0,0" />
+            </Grid>
+            <Grid x:Name="ScheduleEnroll">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ScheduleEnroll_Tapped" />
+                </Grid.GestureRecognizers>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image HorizontalOptions="Start" Grid.Column="0" Grid.Row="0" Margin="0,-2,0,0">
+                    <Image.Source>
+                        <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.PlusCircle}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                    </Image.Source>
+                </Image>
+                <Label Grid.Column="1" Grid.Row="0" Text="Enroll Now" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" Margin="0,0,0,0" />
+            </Grid>
+            <Label x:Name="DropInMax" IsVisible="False" TextColor="#333" FontSize="14" FontAttributes="Bold" Margin="0,0,0,0" />
+            <Label x:Name="UnlimitedMax" IsVisible="False" Text="You've reached your limit for Unlimited class bookings.  The link will reappear after you attend one of your scheduled classes" TextColor="#333" FontSize="14" FontAttributes="Bold" Margin="0,0,0,0" />
+            <Label x:Name="UpgradeDeny" IsVisible="False" Text="You may not upgrade to unlimited at this time because your payment is overdue" TextColor="#333" FontSize="14" FontAttributes="Bold" Margin="0,0,0,0" />
+            <Label x:Name="OverduePayment" IsVisible="False" Text="You have one or more enrollment payments overdue and may not schedule additional classes at this time." TextColor="#333" FontSize="14" FontAttributes="Bold" Margin="0,0,0,0" />
+            <Label x:Name="FreezeDeny" IsVisible="False" TextColor="#333" FontSize="14" FontAttributes="Bold" Margin="0,0,0,0" />
+            <Label
+                x:Name="EnrolledInStr"                
+                HorizontalTextAlignment="Start"
+                FontSize="16"
+                Margin="0,10,0,10"
+                Padding="10"
+                Background="#0079bb"
+                FontAttributes="Bold"
+                TextColor="#fff" />
+            <CollectionView x:Name="Enrollments" VerticalOptions="Start" VerticalScrollBarVisibility="Never" >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Margin="0,0,0,10" >
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <StackLayout>
+                                    <Label Text="{Binding DisplayClass}" TextColor="#555" FontSize="15" FontAttributes="Bold" LineHeight="1.5" />
+                                    <Label IsVisible="{Binding FirstClassVisible}" Text="{Binding FirstClass}" TextColor="#555" FontSize="15" FontAttributes="Bold" />
+                                    <Label IsVisible="{Binding LastClassVisible}" Text="{Binding LastClass}" TextColor="#555" FontSize="15" FontAttributes="Bold" />
+                                    <Label IsVisible="{Binding ContinueToScheduleVisible}" Text="{Binding ContinueToSchedule}" TextColor="#333" FontSize="14" />
+                                    <Label IsVisible="{Binding Unlimited}" Text="{Binding UnlimitedEnrollmentText}" TextColor="#555" FontSize="15" FontAttributes="Bold" />
+                                    <Label IsVisible="{Binding AbsencesExist}" Text="{Binding Absences}" TextColor="#555" FontSize="15" FontAttributes="Bold" />
+                                    <Label IsVisible="{Binding UnFreezeEnrollment}" Text="{Binding FreezeEnrollmentStr}" TextColor="DarkGoldenrod" FontSize="15" FontAttributes="Bold" LineHeight="1.3" />
+                                    <Grid IsVisible="{Binding ViewVIMA}" Margin="0,2,0,2">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="ViewVIMA_Tapped" CommandParameter="{Binding EnrollId}" />
+                                        </Grid.GestureRecognizers>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="14"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image HorizontalOptions="Start" Grid.Column="0">
+                                            <Image.Source>
+                                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.SearchPlus}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                                            </Image.Source>
+                                        </Image>
+                                        <Label Grid.Column="1" Text="View Membership Agreement" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" />
+                                    </Grid>
+                                    <Grid IsVisible="{Binding SignVIMA}" Margin="0,2,0,2">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="SignVIMA_Tapped" CommandParameter="{Binding EnrollId}" />
+                                        </Grid.GestureRecognizers>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="14"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image HorizontalOptions="Start" Grid.Column="0">
+                                            <Image.Source>
+                                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.FileSignature}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                                            </Image.Source>
+                                        </Image>
+                                        <Label Grid.Column="1" Text="Sign Membership Agreement" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" />
+                                    </Grid>
+                                    <Grid IsVisible="{Binding CancelEnrollment}" Margin="0,2,0,2">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="CancelEnrollment_Tapped" CommandParameter="{Binding EnrollId}" />
+                                        </Grid.GestureRecognizers>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="17"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image HorizontalOptions="Start" Grid.Column="0">
+                                            <Image.Source>
+                                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.TimesCircle}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                                            </Image.Source>
+                                        </Image>
+                                        <Label Grid.Column="1" Text="Cancel Enrollment" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" />
+                                    </Grid>
+                                    <Grid IsVisible="{Binding FreezeEnrollment}" Margin="0,2,0,2">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="FreezeEnrollment_Tapped" CommandParameter="{Binding EnrollId}" />
+                                        </Grid.GestureRecognizers>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="17"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image HorizontalOptions="Start" Grid.Column="0">
+                                            <Image.Source>
+                                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.PauseCircle}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                                            </Image.Source>
+                                        </Image>
+                                        <Label Grid.Column="1" Text="Freeze Enrollment" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" />
+                                    </Grid>
+                                    <Grid IsVisible="{Binding UpgradeUnlimited}" Margin="0,2,0,2">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="UpgradeUnlimited_Tapped" CommandParameter="{Binding EnrollId}" />
+                                        </Grid.GestureRecognizers>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="14"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image HorizontalOptions="Start" Grid.Column="0">
+                                            <Image.Source>
+                                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.ArrowAltCircleUp}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                                            </Image.Source>
+                                        </Image>
+                                        <Label Grid.Column="1" Text="{Binding UpgradeUnlimitedText}" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" />
+                                    </Grid>
+                                    <Grid IsVisible="{Binding RemoveUnlimited}" Margin="0,2,0,2">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="RemoveUnlimited_Tapped" CommandParameter="{Binding EnrollId}" />
+                                        </Grid.GestureRecognizers>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="17"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image HorizontalOptions="Start" Grid.Column="0">
+                                            <Image.Source>
+                                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.TimesCircle}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                                            </Image.Source>
+                                        </Image>
+                                        <Label Grid.Column="1" Text="{Binding RemoveUnlimitedText}" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" />
+                                    </Grid>
+                                    <Grid IsVisible="{Binding MarkAbsent}" Margin="0,2,0,2">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="MarkAbsent_Tapped" CommandParameter="{Binding EnrollId}" />
+                                        </Grid.GestureRecognizers>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="17"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image HorizontalOptions="Start" Grid.Column="0">
+                                            <Image.Source>
+                                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.TimesCircle}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                                            </Image.Source>
+                                        </Image>
+                                        <Label Grid.Column="1" Text="Mark Absent" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" />
+                                    </Grid>
+                                    <Grid IsVisible="{Binding UnMarkAbsent}" Margin="0,2,0,2">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="UnMarkAbsent_Tapped" CommandParameter="{Binding EnrollId}" />
+                                        </Grid.GestureRecognizers>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="17"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image HorizontalOptions="Start" Grid.Column="0">
+                                            <Image.Source>
+                                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.UndoAlt}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                                            </Image.Source>
+                                        </Image>
+                                        <Label Grid.Column="1" Text="Un-Mark Absent" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" />
+                                    </Grid>
+                                    <Grid IsVisible="{Binding SwitchClass}" Margin="0,2,0,2">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="SwitchClass_Tapped" CommandParameter="{Binding EnrollId}" />
+                                        </Grid.GestureRecognizers>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="17"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image HorizontalOptions="Start" Grid.Column="0">
+                                            <Image.Source>
+                                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.Random}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                                            </Image.Source>
+                                        </Image>
+                                        <Label Grid.Column="1" Text="Switch Classes" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" />
+                                    </Grid>
+                                    <Label Text="You have one or more enrollments payments overdue and may not cancel, freeze or switch classes." TextColor="#333" FontSize="13" IsVisible="{Binding Overdue}" />
+                                    <Label IsVisible="{Binding FreezeUnavailableVisible}" Text="*Freeze is unavailable due to upcoming cancellation date" TextColor="#333" FontSize="14" />
+                                </StackLayout>
+                            </Grid>
+                            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="2" Color="#0079bb"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Label
+                x:Name="TrialStr"
+                VerticalOptions="Start"
+                HorizontalTextAlignment="Start"
+                FontSize="17"
+                Margin="0,10,0,10"
+                Padding="10"
+                Background="#0079bb"
+                FontAttributes="Bold"
+                TextColor="#fff" />
+            <CollectionView x:Name="Trials" VerticalOptions="Start" VerticalScrollBarVisibility="Never" HeightRequest="300">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Margin="0, 10, 0, 10">
+                            <Grid VerticalOptions="Start">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Margin="0, 0, 0, 0">
+                                    <Label Text="{Binding DisplayClass}" TextColor="#555" FontSize="15" FontAttributes="Bold" LineHeight="1.3" />
+                                    <Label Text="{Binding TrialDates}" TextColor="#555" FontSize="15" FontAttributes="Bold" LineHeight="1.3" />
+                                    <Label Text="{Binding NextClass}" TextColor="#555" FontSize="15" FontAttributes="Bold" LineHeight="1.3" />
+                                    <Label IsVisible="{Binding TrialConvertVisible}" Text="{Binding TrialConvert}" TextColor="DarkGreen" FontSize="15" FontAttributes="Bold" LineHeight="1.3" />
+                                    <Label IsVisible="{Binding TrialCancelledVisible}" Text="Trial was cancelled" TextColor="IndianRed" FontSize="15" FontAttributes="Bold" LineHeight="1.3" />
+                                    <Label IsVisible="{Binding LastClassVisible}" Text="{Binding LastClass}" TextColor="#555" FontSize="15" FontAttributes="Bold" LineHeight="1.3" />
+                                    <Label IsVisible="{Binding Unlimited}" Text="*Unlimited Enrollment" TextColor="#555" FontSize="15" FontAttributes="Bold" />
+                                    <Grid IsVisible="{Binding ViewVIMA}" >
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="ViewVIMA_Tapped" CommandParameter="{Binding EnrollId}" />
+                                        </Grid.GestureRecognizers>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="17"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image HorizontalOptions="Start" Grid.Column="0">
+                                            <Image.Source>
+                                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.SearchPlus}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                                            </Image.Source>
+                                        </Image>
+                                        <Label Grid.Column="1" Text="View Membership Agreement" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" />
+                                    </Grid>
+                                    <Grid IsVisible="{Binding SignVIMA}" Margin="0,0,0,0">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="SignVIMA_Tapped" CommandParameter="{Binding EnrollId}" />
+                                        </Grid.GestureRecognizers>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="14"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image HorizontalOptions="Start" Grid.Column="0">
+                                            <Image.Source>
+                                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.FileSignature}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                                            </Image.Source>
+                                        </Image>
+                                        <Label Grid.Column="1" Text="Sign Membership Agreement" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" />
+                                    </Grid>
+                                    <Grid IsVisible="{Binding CancelEnrollment}" >
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="CancelTrial_Tapped" CommandParameter="{Binding EnrollId}" />
+                                        </Grid.GestureRecognizers>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="17"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image HorizontalOptions="Start" Grid.Column="0">
+                                            <Image.Source>
+                                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.TimesCircle}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                                            </Image.Source>
+                                        </Image>
+                                        <Label Grid.Column="1" Text="Cancel Trial" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" />
+                                    </Grid>
+                                    <Grid IsVisible="{Binding UpgradeUnlimited}" Margin="0,2,0,2">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="UpgradeUnlimited_Tapped" CommandParameter="{Binding EnrollId}" />
+                                        </Grid.GestureRecognizers>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="14"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image HorizontalOptions="Start" Grid.Column="0">
+                                            <Image.Source>
+                                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.ArrowAltCircleUp}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                                            </Image.Source>
+                                        </Image>
+                                        <Label Grid.Column="1" Text="Upgrade to Unlimited" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" />
+                                    </Grid>
+                                    <Grid IsVisible="{Binding RemoveUnlimited}" Margin="0,2,0,2">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="RemoveUnlimited_Tapped" CommandParameter="{Binding EnrollId}" />
+                                        </Grid.GestureRecognizers>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="17"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image HorizontalOptions="Start" Grid.Column="0">
+                                            <Image.Source>
+                                                <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.TimesCircle}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                                            </Image.Source>
+                                        </Image>
+                                        <Label Grid.Column="1" Text="Remove Unlimited Upgrade" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" />
+                                    </Grid>
+                                </StackLayout>
+                            </Grid>
+                            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="2" Color="#0079bb"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <BoxView VerticalOptions="Start" HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="2" Color="#fff"/>
+            <Label
+                x:Name="ClassCardsStr"
+                Text="Available Class Card Credits"
+                VerticalOptions="Start"
+                HorizontalTextAlignment="Start"
+                FontSize="17"
+                Margin="0,10,0,10"
+                Padding="10"
+                Background="#0079bb"
+                FontAttributes="Bold"
+                TextColor="#fff" />
+            <Grid
+                x:Name="purchaseClassCard"
+                IsVisible="False"
+                VerticalOptions="Start"
+                Padding="0,0,0,5"
+                HeightRequest="24">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="PurchaseClassCard_Tapped" />
+                </Grid.GestureRecognizers>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" VerticalOptions="Center">
+                    <Image.Source>
+                        <FontImageSource Glyph="{x:Static fontAwesome:FontAwesomeSolid.PlusCircle}" FontFamily="FontAwesomeSolid" Color="#0079bb"></FontImageSource>
+                    </Image.Source>
+                </Image>
+                <Label Grid.Column="1" Grid.Row="0" Text="Purchase Class Card" TextColor="#0079bb" FontSize="15" FontAttributes="Bold" VerticalOptions="Center" />
+            </Grid>
+            <CollectionView x:Name="ClassCards" Margin="0" VerticalOptions="Start">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Margin="0, 10, 0, 10">
+                            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="2" Color="#0079bb"/>
+                            <Label Text="{Binding Display}" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" />
+                            <Label Text="{Binding SessionsStr}" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" />
+                            <Label Text="{Binding EndStr}" TextColor="#0079bb" FontSize="17" FontAttributes="Bold" />
+                      </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

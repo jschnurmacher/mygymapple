@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.Settings">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="15,10,15,0">
+                <Image x:Name="waitImage"
+                    Source="wait1.webp"
+                    Margin="-15,-10,-15,0" />
+                <Frame CornerRadius="5" HasShadow="False" Margin="10" BorderColor="#e0e0e0">
+                    <StackLayout Padding="0" Margin="0">
+                        <Label x:Name="versionTitle"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            FontAttributes="Bold"
+                            TextColor="#333"
+                            Margin="0,0,0,0"/>
+                        <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#333" Margin="0,5,0,5"/>
+                        <Label x:Name="logOff"
+                            Text="Log Out"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            FontAttributes="Bold"
+                            TextColor="#0079bb"
+                            IsVisible="True"
+                            Margin="0,0,0,0" />
+                        <BoxView x:Name="logOffBox" HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="1" Color="#333" Margin="0,5,0,5"/>
+                    </StackLayout>
+                </Frame>
+                <Label
+                    Text="Support"
+                    VerticalOptions="Center"
+                    HorizontalTextAlignment="Start"
+                    IsVisible="True"
+                    FontSize="17"
+                    FontAttributes="Bold"
+                    TextColor="#0079bb" />
+                <telerikInput:RadEntry x:Name="EmailForm" 
+                    WatermarkText="*Email" 
+                    HeightRequest="50"
+                    MaxLength="256" />
+                <telerikInput:RadEntry x:Name="First" 
+                    WatermarkText="*First" 
+                    HeightRequest="50"
+                    MaxLength="32" />
+                <telerikInput:RadEntry x:Name="Last" 
+                    WatermarkText="*Last" 
+                    HeightRequest="50"
+                    MaxLength="64" />
+                <Editor x:Name="Comments" AutoSize="TextChanges" MaxLength="1024" Placeholder="*Question/Issue" HeightRequest="90" />
+                <Button 
+                    Text="Submit" 
+                    Clicked="Submit_Clicked"
+                    Margin="0,3,0,3"
+                    Style="{StaticResource buttonStyle}" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

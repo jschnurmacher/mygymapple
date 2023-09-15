@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+    xmlns:control="clr-namespace:MyGym"
+    x:Class="MyGym.EnrollCancelTrial">
+    <Shell.TitleView>
+        <control:TitleBar x:Name="titleBar"/>
+   </Shell.TitleView>
+    <StackLayout Padding="20,10,20,0">
+        <Label x:Name="EnrollTitle"
+            Text="Cancel Trial Enrollment"
+            VerticalOptions="Center"
+            HorizontalTextAlignment="Start"
+            FontSize="17"
+            Margin="-20,10,-20,0"
+            Padding="30,10,10,10"
+            Background="#0079bb"
+            FontAttributes="Bold"
+            TextColor="#fff" />
+        <Label Text="Please select the reason you are cancelling"
+            VerticalOptions="Start"
+            Margin="10"
+            HorizontalTextAlignment="Start"
+            FontSize="14"
+            FontAttributes="Bold"
+            TextColor="#333" />
+        <telerikInput:RadListPicker x:Name="Reasons" 
+            Margin="10"
+            DisplayMemberPath="Text">
+        </telerikInput:RadListPicker>
+        <Button x:Name="submitButton"
+            Text="Submit" 
+            Clicked="Submit_Clicked" 
+            Padding="0"
+            Margin="0,5,0,5"
+            Style="{StaticResource buttonStyle}" />
+        <Button x:Name="cancelButton"
+            Text="Cancel" 
+            Clicked="Cancel_Clicked" 
+            Padding="0"
+            Margin="0,5,0,30"
+            Style="{StaticResource buttonCancelStyle}" />
+    </StackLayout>
+</ContentPage>
