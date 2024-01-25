@@ -426,12 +426,37 @@ namespace MyGym
                 cl.ButtonsHeight = cl.TimesList.Count * 62;
                 foreach (CustomListItemTimeMobile t in cl.TimesList)
                 {
+                    ClassView_ResultMobile c = null;
+                    foreach(ClassView_ResultMobile cx in cl.Classes)
+                    {
+                        if (cx.Id == Convert.ToInt32(t.Value))
+                        {
+                            c = cx;
+                            break;
+                        }
+                    }
+                    bool full = true;
+                    foreach(ClassButtonMobile b in c.ClassButtons)
+                    {
+                        if (b.Attendance < b.Max)
+                        {
+                            full = false;
+                            break;
+                        }
+                    }
                     string f = t.Text;
                     f = f.ToLower();
                     f = f.Replace("am", "a");
                     f = f.Replace("pm", "p");
                     f = UtilMobile.ProperCase(f);
-                    cl.Buttons.Add(new CustomListItemMobile { Value = index.ToString(), Text = f });
+                    if (full == true)
+                    {
+                        cl.Buttons.Add(new CustomListItemMobile { Value = index.ToString(), Text = f + " (Full)" });
+                    }
+                    else
+                    {
+                        cl.Buttons.Add(new CustomListItemMobile { Value = index.ToString(), Text = f });
+                    }
                     index++;
                 }
             }
@@ -439,7 +464,6 @@ namespace MyGym
             {
                 cl.ChooseTime = false;
                 cl.ChooseDate = true;
-                Xamarin.Essentials.Preferences.Set("mode", "3");
                 int timeIndex = Convert.ToInt32(((Button)sender).CommandParameter);
                 Xamarin.Essentials.Preferences.Set("timeindex", timeIndex.ToString());
                 CustomListItemTimeMobile mt = cl.TimesList[timeIndex - 1];
@@ -449,23 +473,43 @@ namespace MyGym
                 {
                     if (t.Id == classId)
                     {
-                        int index = 1;
-                        cl.Buttons = new ObservableCollection<CustomListItemMobile>();
-                        cl.ButtonsHeight = t.ClassButtons.Count * 62;
+                        bool full = true;
                         foreach (ClassButtonMobile b in t.ClassButtons)
                         {
-                            string f = b.MobileStr;
-                            f = f.ToLower();
-                            f = UtilMobile.ProperCase(f);
-                            if (b.Closed)
+                            if (b.Attendance < b.Max)
                             {
-                                cl.Buttons.Add(new CustomListItemMobile { Value = "-1", Text = f + " (Closed)" });
+                                full = false;
                             }
-                            else
+                        }
+                        if (full == true)
+                        {
+                            await DisplayAlert("Class is Full", "This class is full. Please choose another time.", "Close");
+                        }
+                        else
+                        {
+                            Xamarin.Essentials.Preferences.Set("mode", "3");
+                            int index = 1;
+                            cl.Buttons = new ObservableCollection<CustomListItemMobile>();
+                            cl.ButtonsHeight = t.ClassButtons.Count * 62;
+                            foreach (ClassButtonMobile b in t.ClassButtons)
                             {
-                                cl.Buttons.Add(new CustomListItemMobile { Value = index.ToString(), Text = f });
+                                string f = b.MobileStr;
+                                f = f.ToLower();
+                                f = UtilMobile.ProperCase(f);
+                                if (b.Closed)
+                                {
+                                    cl.Buttons.Add(new CustomListItemMobile { Value = "-1", Text = f + " (Closed)" });
+                                }
+                                else if (b.Attendance >= b.Max)
+                                {
+                                    cl.Buttons.Add(new CustomListItemMobile { Value = "-2", Text = f + " (Full)" });
+                                }
+                                else
+                                {
+                                    cl.Buttons.Add(new CustomListItemMobile { Value = index.ToString(), Text = f });
+                                }
+                                index++;
                             }
-                            index++;
                         }
                         break;
                     }
@@ -477,6 +521,11 @@ namespace MyGym
                 if (dateIndex == -1)
                 {
                     await DisplayAlert("Gym is Closed", "The Gym is closed this date. Please choose another date.", "Close");
+                    return;
+                }
+                else if (dateIndex == -2)
+                {
+                    await DisplayAlert("Class is Full", "This class is full. Please choose another date.", "Close");
                     return;
                 }
                 int classId = Convert.ToInt32(Xamarin.Essentials.Preferences.Get("classid", ""));

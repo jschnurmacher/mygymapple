@@ -153,7 +153,7 @@ namespace MyGym
                     if (enrolls.Count > 0)
                     {
                         Enrollments.ItemsSource = enrolls;
-                        Enrollments.HeightRequest = enrolls.Count * 260;
+                        Enrollments.HeightRequest = enrolls.Count * 290;
                     }
 
                     TrialStr.Text = $"Trial enrollments for {c.First}:";
@@ -165,7 +165,7 @@ namespace MyGym
                     if (trials.Count > 0)
                     {
                         Trials.ItemsSource = trials;
-                        Trials.HeightRequest = trials.Count * 260;
+                        Trials.HeightRequest = trials.Count * 290;
                     }
 
                     break;
