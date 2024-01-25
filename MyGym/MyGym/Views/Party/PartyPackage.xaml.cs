@@ -48,7 +48,17 @@ namespace MyGym
                         pk.BirthdayPackageCaptionsHeight += (Convert.ToInt32(Math.Ceiling(c.Caption.Length / 40.0M) * 20.0M)) + (c.BirthdayCaptionItemsHeight);
                     }
                     Cost.Text = pk.Member == pk.NonMember ? string.Format(new CultureInfo(gym.Culture), "{0:c}", pk.Member) : string.Format(new CultureInfo(gym.Culture), "{0:c} (nonmembers: {1:c})", pk.Member, pk.NonMember);
-                    bookButton.Text = $"Book {pk.Name}";
+                    if (pk.Booking == true)
+                    {
+                        bookButton.Text = $"Book {pk.Name}";
+                        bookButton.IsVisible = true;
+                        contactButton.IsVisible = false;
+                    }
+                    else
+                    {
+                        bookButton.IsVisible = false;
+                        contactButton.IsVisible = true;
+                    }
                     partyCaptions.ItemsSource = pk.BirthdayPackageCaptions;
                     partyCaptions.HeightRequest = pk.BirthdayPackageCaptionsHeight;
                     break;

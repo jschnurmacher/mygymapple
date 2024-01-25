@@ -61,6 +61,8 @@ namespace mygymmobiledata
     {
         public string Month { get; set; }
         public int MonthInt { get; set; }
+        public string Year { get; set; }
+        public int YearInt { get; set; }
         public ObservableCollection<PartyDateMobile> Dates { get; set; }
     }
 

@@ -247,7 +247,16 @@ namespace MyGym
                         string timeAux = "";
                         time += "• " + day + " ";
                         time += string.Format(new System.Globalization.CultureInfo(gym.Culture), "{0:h:mm}{1}", c.Start, c.Start.Hour >= 12 ? "p" : "a");
-                        if (c.ClassButtons.Count == 0)
+                        bool full = true;
+                        foreach(ClassButtonMobile b in c.ClassButtons)
+                        {
+                            if (b.Attendance < b.Max)
+                            {
+                                full = false;
+                                break;
+                            }
+                        }
+                        if (full == true)
                         {
                             timeAux += "*class full or ineligible";
                         }

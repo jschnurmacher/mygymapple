@@ -64,7 +64,7 @@ namespace MyGym
             PartyDatesMobile partyDates = (PartyDatesMobile)Application.Current.Properties["partydates"];
             foreach (PartyMonthMobile pm in partyDates.Months)
             {
-                if (pm.MonthInt == m.MonthInt)
+                if (pm.MonthInt == m.MonthInt && pm.YearInt == m.YearInt)
                 {
                     Application.Current.Properties["partyselectedmonth"] = pm;
                     dates.IsEnabled = true;

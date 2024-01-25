@@ -82,7 +82,7 @@ namespace MyGym
                 TrialCost.IsVisible = true;
                 TrialPeriod.Text = string.Format(new CultureInfo(gym.Culture), "Trial Period: {0:d} - {1:d} ", d, d.AddDays((gym.TrialWeeks * 7) - 1));
                 TrialPeriodConverts.Text = string.Format(new CultureInfo(gym.Culture), "Trial Auto Converts on: {0:d}", d.AddDays(gym.TrialWeeks * 7));
-                TrialCost.Text = string.Format("{0} week(s0 for {1:c}{2}", gym.TrialWeeks, Math.Round(Convert.ToDecimal(gym.TrialCost), 2), gym.ClassTax > 0 ? " + tax" : "");
+                TrialCost.Text = string.Format("{0} week(s) for {1:c}{2}", gym.TrialWeeks, Math.Round(Convert.ToDecimal(gym.TrialCost), 2), gym.ClassTax > 0 ? " + tax" : "");
             }
             base.OnAppearing();
         }

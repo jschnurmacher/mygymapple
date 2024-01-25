@@ -124,6 +124,11 @@ namespace MyGym
                     CreditApplied.Text = string.Format(new CultureInfo(gym.Culture), "Credit Applied: {0:c}", 0);
                 }
                 CalculateTotals(child);
+                SocksGrid.IsVisible = true;
+                if (gym.ShowSocksOnCheckout == false)
+                {
+                    SocksGrid.IsVisible = false;
+                }
             }
             catch (Exception ex)
             {
